@@ -1,0 +1,91 @@
+﻿@model List<Model.Login>
+@{
+    Layout = null;
+}
+
+
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="/Assets/css/Login.css" rel="stylesheet" />
+    <!------ Include the above in your HEAD tag ---------->
+    <style>
+        .check-input{
+            display:none;
+            color:chartreuse;
+        }
+        .check-input1 {
+            display: none;
+            color: chartreuse;
+        }
+    </style>
+</head>
+
+<body id="LoginForm">
+    <div class="container">
+      
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Đăng Nhập</h2>
+                    <p style="color:red">@ViewBag.error</p>
+                  
+                </div>
+                <form id="Login" action="/Home/Userlogin" method="post">
+                    <div class="form-group">
+
+                        <input style="display:none" />
+                        <input type="text" class="form-control form-control1" id="inputEmail" placeholder="User Name" name="UserName">
+                        <span class="check-input">
+                            Bạn chưa nhập dữ liệu
+                        </span>
+                        <span class="check-input1">
+                            Mật khẩu chưa chính xác
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control1" id="inputPassword" placeholder="Password" name="Password">
+                        <span class="check-input">
+                            Bạn chưa nhập dữ liệu
+                        </span>
+                        <span class="check-input1">
+                           Tài khoản chưa chính xác
+                        </span>
+                    </div>
+                    <div class="forgot">
+                        <a href="/Login/AddUser">Tạo mới tài khoản</a>
+                    </div>
+                    <button type="submit" onclick="return checkValid()" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            <p class="botto-text"> Designed by Sunil Rajput</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script>
+    function checkValid() {
+        var item = document.getElementsByClassName('form-control1');
+        var item1 = document.getElementsByClassName('check-input');
+        var valid = true;
+        for (var i = 0; i < item.length; i++) {
+            if (item[i].value == "") {
+                item[i].style.border = '2px solid red';
+                item1[i].style.display = 'block';
+                valid = false;
+            }
+            if (item[i].value != "") {
+                item[i].style.border = '1px solid #ccc';
+                item1[i].style.display = 'none';
+
+            }
+            if
+        }
+
+        return valid;
+    }
+</script>

@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<Model.News>
+@{
+    ViewBag.Title = "NewsIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PagedList.Mvc;
+<h2>News</h2>
+@*<a href="/Home/Create">Create</a>*@
+<table class="table table-bordered">
+    <tr class="success">
+        <th>
+            Title
+        </th>
+        <th>
+            Content
+        </th>
+        <th>
+            CreateDate
+        </th>
+        <th>
+            prioritize
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+
+                @item.Title
+            </td>
+            <td>
+                @item.Content
+            </td>
+            <td>
+                @item.CreateDate
+            </td>
+            <td>
+                @item.prioritize
+            </td>
+        </tr>
+    }
+</table>
+<div style="text-align:center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+
