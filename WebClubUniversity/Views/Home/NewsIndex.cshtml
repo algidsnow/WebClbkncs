@@ -4,43 +4,99 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using PagedList.Mvc;
+
+
 <h2>News</h2>
 @*<a href="/Home/Create">Create</a>*@
-<table class="table table-bordered">
-    <tr class="success">
-        <th>
-            Title
-        </th>
-        <th>
-            Content
-        </th>
-        <th>
-            CreateDate
-        </th>
-        <th>
-            prioritize
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
+
+<p>
+    <a href="/Home/CreateNews" class="btn-success">
+        Create New
+    </a>
+</p>
+<div class="container">
 
 
-                @item.Title
-            </td>
+    <table class="table table-bordered">
+        <tr class="info">
+            <th>
+                Title
+            </th>
+
+            <th>
+                ShortContent
+            </th>
+            <th>
+                CreateDate
+            </th>
+            <th>
+                CreateBy
+            </th>
+            <th>
+                UpdateDate
+            </th>
+            <th>
+                UpdateBy
+            </th>
+            <th>
+                UrlRepresent
+            </th>
+            <th>
+                prioritize
+            </th>
             <td>
-                @item.Content
+                Status
             </td>
-            <td>
-                @item.CreateDate
-            </td>
-            <td>
-                @item.prioritize
-            </td>
+            <th>
+                Delete
+            </th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model)
+        {
+            <tr class="success">
+                <td>
+                    @item.Title
+                </td>
+
+
+
+                <td>
+                    @item.shortContent
+
+                </td>
+                <td>
+                    @item.CreateDate
+                </td>
+                <td>
+                    @item.CreateBy
+                </td>
+                <td>
+                    @item.UpdateDate
+                </td>
+                <td>
+                    @item.UpdateBy
+                </td>
+                <td>
+                    <img src="~/Assets/images/@item.UrlRepresent" style="width:100px;height:100px" >
+                </td>
+                <td>
+                    @item.prioritize
+                </td>
+                <td>
+                    @item.status
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "UpdateNews", new { id = item.NewsId }, new { @class = "fas fa-edit" })
+
+                    <a href="@Url.Action("DeleteNews", "Home", new { @id = item.NewsId })" class="fas fa-trash-alt" onclick="return confirm('Are you sure??')"></a>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
 <div style="text-align:center">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
