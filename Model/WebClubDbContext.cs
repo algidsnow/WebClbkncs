@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [DbConfigurationType(typeof(MySqlEFConfiguration))]
+ 
     public class WebClubDbContext:DbContext
     {
-        public WebClubDbContext():base("name=WebAppMySql")
+        public WebClubDbContext():base("WebMvcSqlServer")
         {
             Database.SetInitializer(new WebAppInitializer());
          

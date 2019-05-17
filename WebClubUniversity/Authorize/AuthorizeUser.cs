@@ -22,7 +22,7 @@ namespace WebClubUniversity.Authorize
 
                 if (User_Session != Order)
                 {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "C" }));
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Index" }));
                 }
             }
         }

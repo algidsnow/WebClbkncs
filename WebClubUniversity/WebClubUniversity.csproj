@@ -1321,6 +1321,7 @@
     <Content Include="Views\Home\NewsIndex.cshtml" />
     <Content Include="Views\Home\CreateNews.cshtml" />
     <Content Include="Views\Home\UserLogin.cshtml" />
+    <Content Include="Views\Home\UpdateNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

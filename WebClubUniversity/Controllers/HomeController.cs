@@ -2,6 +2,8 @@
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
@@ -13,7 +15,7 @@ namespace WebClubUniversity.Controllers
     public class HomeController : Controller
     {
         WebClubDbContext dbcontext = new WebClubDbContext();
-       [AuthorizeUser(Order =1)]
+
         public ActionResult Index()
         {
             Session["Authorize"] = 1;
@@ -25,12 +27,76 @@ namespace WebClubUniversity.Controllers
             var GetAllNews = dbcontext.News.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
             return View(GetAllNews);
         }
-       
+
         public ActionResult CreateNews()
-        {       
+        {
             return View();
         }
-        public ActionResult UserLogin()
+
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult CreateNews(News news, HttpPostedFileBase ImageUrl)
+        {
+            news.CreateDate = DateTime.Now;
+            news.UpdateDate = DateTime.Now;
+            var addNews = dbcontext.News.Add(news);
+
+            NewsImage newsImage = new NewsImage();
+            string fileName = "";
+            try
+            {
+                if (ImageUrl != null && ImageUrl.ContentLength > 0)
+
+                {
+                    fileName = Path.GetFileName(ImageUrl.FileName);
+                    string path = Path.Combine(Server.MapPath("/Assets/images"), Path.GetFileName(ImageUrl.FileName));
+                    ImageUrl.SaveAs(path);
+                    addNews.UrlRepresent = fileName;
+                    dbcontext.SaveChanges();
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+            return View("Index");
+        }
+        public ActionResult UpdateNews(int id)
+        {
+         var Update =  dbcontext.News.Find(id);
+            return View(Update);
+        } 
+        [HttpPost, ValidateInput(false)]
+      
+        public ActionResult UpdateNews(News news, HttpPostedFileBase ImageUrl,int id)
+        {
+            string fileName = "";
+            try
+            {
+
+                if (ImageUrl != null && ImageUrl.ContentLength > 0)
+
+                {
+                    fileName = Path.GetFileName(ImageUrl.FileName);
+                    string path = Path.Combine(Server.MapPath("/Assets/images"), Path.GetFileName(ImageUrl.FileName));
+                    ImageUrl.SaveAs(path);
+                    news.UrlRepresent = fileName;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            news.NewsId = id;
+            dbcontext.News.AddOrUpdate(news);
+            dbcontext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    
+
+
+            public ActionResult UserLogin()
         {
            
             return View();
@@ -41,13 +107,6 @@ namespace WebClubUniversity.Controllers
         {
             try
             {
-                Login login1 = new Login();
-                login1.UserName = "admin123";
-                login1.PassWord = "admin123";
-                login1.Roles = 1;
-                var hashcodename = Crypto.Hash(login1.PassWord, "MD5");
-                dbcontext.Logins.Add(login1);
-               
                 var hashcode = Crypto.Hash(password, "MD5");
                 var login = dbcontext.Logins.SingleOrDefault(x => x.UserName == userName && x.PassWord == password);
                 if (login == null )
