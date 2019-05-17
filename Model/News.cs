@@ -23,11 +23,12 @@ namespace Model
 
         public string CreateBy { get; set; }
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
         public string UpdateBy { get; set; }
 
         public string UrlRepresent { get; set; }
+        public string shortContent { get; set; }
 
         public int status { get; set; }
         public int prioritize { get; set; }
