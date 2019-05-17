@@ -33,12 +33,13 @@ namespace WebClubUniversity.Controllers
             return View();
         }
 
+  
 
         [HttpPost, ValidateInput(false)]
         public ActionResult CreateNews(News news, HttpPostedFileBase ImageUrl)
         {
             news.CreateDate = DateTime.Now;
-            news.UpdateDate = DateTime.Now;
+        
             var addNews = dbcontext.News.Add(news);
 
             NewsImage newsImage = new NewsImage();
@@ -64,6 +65,8 @@ namespace WebClubUniversity.Controllers
         }
         public ActionResult UpdateNews(int id)
         {
+
+
          var Update =  dbcontext.News.Find(id);
             return View(Update);
         } 
@@ -89,6 +92,7 @@ namespace WebClubUniversity.Controllers
 
             }
             news.NewsId = id;
+             news.UpdateDate = DateTime.Now;
             dbcontext.News.AddOrUpdate(news);
             dbcontext.SaveChanges();
             return RedirectToAction("Index");
