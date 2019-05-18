@@ -1252,6 +1252,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\angular\news\news.controller.js" />
+    <Content Include="Scripts\app\angular\news\news.service.js" />
     <Content Include="Scripts\app\angular\app.module.js" />
     <Content Include="Scripts\app\angular\core\app.config.js" />
     <Content Include="Scripts\app\angular\core\core.module.js" />
@@ -1286,6 +1288,8 @@
     <Content Include="Scripts\app\angular\login\login.service.js" />
     <Content Include="Scripts\app\angular\login\login.validator.js" />
     <Content Include="Scripts\app\angular\router\app.router.js" />
+    <Content Include="Scripts\app\angular\about\about.controller.js" />
+    <Content Include="Scripts\app\angular\about\about.service.js" />
     <Content Include="Scripts\app\angular\users\users.controller.js" />
     <Content Include="Scripts\app\angular\users\users.service.js" />
     <Content Include="Scripts\app\angular\users\users.validator.js" />
@@ -1431,6 +1435,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Member\" />

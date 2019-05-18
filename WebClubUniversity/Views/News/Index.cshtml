@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout_User.cshtml";
 }
 
-<main id="main" class="">
+<main id="main" class="" ng-controller="NewsController">
 
     <div id="content" role="main" class="content-area">
         <section class="section" id="section_2067839399">
@@ -18,21 +18,21 @@
                 <div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main">TIN HOẠT ĐỘNG</span><b></b></h3></div><!-- .section-title -->
 
                 <div class="row large-columns-3 medium-columns- small-columns-1 slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-                    <div class="col post-item">
+                    <div class="col post-item" ng-repeat="item in newsAction">
                         <div class="col-inner">
-                            <a href="/News/Detail" class="plain">
+                            <a href="/News/Detail" class="plain"> 
                                 <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                     <div class="box-image">
                                         <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="711" height="400" src="http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-711x400.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-711x400.jpg 711w, http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-768x432.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-600x338.jpg 600w, http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha.jpg 960w" sizes="(max-width: 711px) 100vw, 711px" />
+                                            <img width="711" height="400" ng-src="{{item.imgUrl}}" class="attachment-medium size-medium wp-post-image" alt="" />
                                         </div>
                                     </div><!-- .box-image -->
                                     <div class="box-text text-center">
                                         <div class="box-text-inner blog-post-inner">
 
-                                            <h5 class="post-title is-large ">Sinh hoạt chuyên đề tháng 2/2019</h5>
+                                            <h5 class="post-title is-large " ng-bind="item.title">Sinh hoạt chuyên đề tháng 2/2019</h5>
                                             <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Câu lạc bộ Cafe Số trân trọng kính mời quý anh/chị Nhà báo, Phóng viên [...]					</p>
+                                            <p class="from_the_blog_excerpt " ng-bind="item.content">Câu lạc bộ Cafe Số trân trọng kính mời quý anh/chị Nhà báo, Phóng viên [...]					</p>
 
 
 
@@ -48,235 +48,26 @@
                             </a><!-- .link -->
                         </div><!-- .col-inner -->
                     </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/10/02/chuyen-de-thang-10-nhat-the-hoa-bo-may-co-hoi-va-thach-thuc-trong-tien-trinh-doi-moi-the-che-chinh-tri-o-viet-nam/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="640" height="397" src="http://clbcafeso.vn/wp-content/uploads/2018/10/nguyen-si-dung.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/10/nguyen-si-dung.jpg 640w, http://clbcafeso.vn/wp-content/uploads/2018/10/nguyen-si-dung-600x372.jpg 600w" sizes="(max-width: 640px) 100vw, 640px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
 
-                                            <h5 class="post-title is-large ">Chuyên đề tháng 10: “Nhất thể hóa bộ máy: cơ hội và thách thức trong tiến trình đổi mới thể chế chính trị ở Việt Nam”</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">MỜI THAM DỰ CHUYÊN ĐỀ THÁNG 10 Chủ đề: “Nhất thể hóa bộ máy: cơ hội [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">02</span><br>
-                                            <span class="post-date-month is-xsmall">Oct</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/14/mot-so-bai-bao-sau-buoi-thuyet-trinh-ngay-8-9/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="666" height="374" src="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_hnd0_qlrs.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_hnd0_qlrs.jpg 666w, http://clbcafeso.vn/wp-content/uploads/2018/09/vt_hnd0_qlrs-600x337.jpg 600w" sizes="(max-width: 666px) 100vw, 666px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Một số bài báo sau buổi trao đổi thường kỳ của CLB Cafe Số ngày 8/9</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Ngày 8/9, CLB Cafe Số đã tổ chức buổi trao đổi thường kỳ tháng 9/2018. [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">14</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/14/thong-bao-moi-tham-du-buoi-trao-doi-xung-quanh-chu-de-chuong-trinh-giao-duc-pho-thong-moi-co-gi-moi/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="600" height="400" src="http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet-600x400.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet-600x400.jpg 600w, http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet-768x512.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet.jpg 888w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Thông báo: Mời tham dự buổi trao đổi xung quanh chủ đề “Chương trình giáo dục phổ thông mới có gì mới?”</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Có thể nói Giáo dục đào tạo là một trong những lĩnh vực có nhiều [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">14</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/09/cong-nghe-giao-duc-va-nhung-dieu-la-lung-cua-gs-ho-ngoc-dai/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="666" height="374" src="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_img_1824_xryt.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_img_1824_xryt.jpg 666w, http://clbcafeso.vn/wp-content/uploads/2018/09/vt_img_1824_xryt-600x337.jpg 600w" sizes="(max-width: 666px) 100vw, 666px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">VietTimes: Công nghệ giáo dục và những điều “lạ lùng” của GS. Hồ Ngọc Đại</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Trong buổi sinh hoạt chuyên đề thường kỳ tháng 9 của Câu lạc bộ Cafe [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">09</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/09/dan-tri-gs-ho-ngoc-dai-danh-van-bang-o-vuong-hinh-tron-hoc-sinh-se-khong-tai-mu-chu/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="640" height="400" src="http://clbcafeso.vn/wp-content/uploads/2018/09/gs-dai-2-crop-15364593954431317764307-640x400.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/gs-dai-2-crop-15364593954431317764307.png 640w, http://clbcafeso.vn/wp-content/uploads/2018/09/gs-dai-2-crop-15364593954431317764307-600x375.png 600w" sizes="(max-width: 640px) 100vw, 640px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Dân Trí: GS Hồ Ngọc Đại: Đánh vần bằng ô vuông, hình tròn, học sinh sẽ không tái mù chữ</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">GS Hồ Ngọc Đại, “cha đẻ” của Công nghệ giáo dục, tác giả cuốn sách [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">09</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/08/vnexpress-gs-ho-ngoc-dai-ap-dat-tu-tuong-cua-nguoi-lon-cho-hoc-sinh-la-loi-thoi/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="500" height="333" src="http://clbcafeso.vn/wp-content/uploads/2018/09/GS-Ho-Ngoc-Dai-8095-1536402813.jpg" class="attachment-medium size-medium wp-post-image" alt="" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">VnExpress: GS Hồ Ngọc Đại: Áp đặt tư tưởng của người lớn cho học sinh là lỗi thời</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Ngày 8/9, tại Hà Nội, GS Hồ Ngọc Đại, chủ biên Tiếng Việt lớp 1 Công [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">08</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/08/06/ra-mat-cau-lac-bo-cafe-so/" class="plain">
-                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:56.25%;">
-                                            <img width="533" height="400" src="http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-533x400.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-533x400.jpg 533w, http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-768x576.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-1067x800.jpg 1067w, http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-600x450.jpg 600w" sizes="(max-width: 533px) 100vw, 533px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Ra mắt câu lạc bộ Cafe Số</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Ngày 4/8/2018, tại 84 Duy Tân, Hà Nội, lễ ra mắt Câu lạc bộ Café [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-outline">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">06</span><br>
-                                            <span class="post-date-month is-xsmall">Aug</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
                 </div>
                 <div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main">BÀI VIẾT HAY</span><b></b></h3></div><!-- .section-title -->
 
                 <div class="row large-columns-3 medium-columns- small-columns-1 slider row-slider slider-nav-reveal" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-                    <div class="col post-item">
+                    <div class="col post-item" ng-repeat="item in newsGood">
                         <div class="col-inner">
                             <a href="http://clbcafeso.vn/2019/02/13/sinh-hoat-chuyen-de-thang-2-2019/" class="plain">
                                 <div class="box box-push box-text-bottom box-blog-post has-hover">
                                     <div class="box-image">
                                         <div class="image-cover" style="padding-top:75%;">
-                                            <img width="711" height="400" src="http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-711x400.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-711x400.jpg 711w, http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-768x432.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha-600x338.jpg 600w, http://clbcafeso.vn/wp-content/uploads/2019/02/phanmanha.jpg 960w" sizes="(max-width: 711px) 100vw, 711px" />
+                                            <img width="711" height="400" ng-src="{{item.imgUrl}}" class="attachment-medium size-medium wp-post-image" alt="" />
                                         </div>
                                     </div><!-- .box-image -->
                                     <div class="box-text text-center">
                                         <div class="box-text-inner blog-post-inner">
 
-                                            <h5 class="post-title is-large ">Sinh hoạt chuyên đề tháng 2/2019</h5>
+                                            <h5 class="post-title is-large " ng-bind="item.title">Sinh hoạt chuyên đề tháng 2/2019</h5>
                                             <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Câu lạc bộ Cafe Số trân trọng kính mời quý anh/chị Nhà báo, Phóng viên [...]					</p>
+                                            <p class="from_the_blog_excerpt " ng-bind="item.content">Câu lạc bộ Cafe Số trân trọng kính mời quý anh/chị Nhà báo, Phóng viên [...]					</p>
 
 
 
@@ -292,218 +83,8 @@
                             </a><!-- .link -->
                         </div><!-- .col-inner -->
                     </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/10/02/chuyen-de-thang-10-nhat-the-hoa-bo-may-co-hoi-va-thach-thuc-trong-tien-trinh-doi-moi-the-che-chinh-tri-o-viet-nam/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="640" height="397" src="http://clbcafeso.vn/wp-content/uploads/2018/10/nguyen-si-dung.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/10/nguyen-si-dung.jpg 640w, http://clbcafeso.vn/wp-content/uploads/2018/10/nguyen-si-dung-600x372.jpg 600w" sizes="(max-width: 640px) 100vw, 640px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Chuyên đề tháng 10: “Nhất thể hóa bộ máy: cơ hội và thách thức trong tiến trình đổi mới thể chế chính trị ở Việt Nam”</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">MỜI THAM DỰ CHUYÊN ĐỀ THÁNG 10 Chủ đề: “Nhất thể hóa bộ máy: cơ hội [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">02</span><br>
-                                            <span class="post-date-month is-xsmall">Oct</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/14/mot-so-bai-bao-sau-buoi-thuyet-trinh-ngay-8-9/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="666" height="374" src="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_hnd0_qlrs.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_hnd0_qlrs.jpg 666w, http://clbcafeso.vn/wp-content/uploads/2018/09/vt_hnd0_qlrs-600x337.jpg 600w" sizes="(max-width: 666px) 100vw, 666px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Một số bài báo sau buổi trao đổi thường kỳ của CLB Cafe Số ngày 8/9</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Ngày 8/9, CLB Cafe Số đã tổ chức buổi trao đổi thường kỳ tháng 9/2018. [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">14</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/14/thong-bao-moi-tham-du-buoi-trao-doi-xung-quanh-chu-de-chuong-trinh-giao-duc-pho-thong-moi-co-gi-moi/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="600" height="400" src="http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet-600x400.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet-600x400.jpg 600w, http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet-768x512.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2018/09/nguyen-minh-thuyet.jpg 888w" sizes="(max-width: 600px) 100vw, 600px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Thông báo: Mời tham dự buổi trao đổi xung quanh chủ đề “Chương trình giáo dục phổ thông mới có gì mới?”</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Có thể nói Giáo dục đào tạo là một trong những lĩnh vực có nhiều [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">14</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/09/cong-nghe-giao-duc-va-nhung-dieu-la-lung-cua-gs-ho-ngoc-dai/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="666" height="374" src="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_img_1824_xryt.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/vt_img_1824_xryt.jpg 666w, http://clbcafeso.vn/wp-content/uploads/2018/09/vt_img_1824_xryt-600x337.jpg 600w" sizes="(max-width: 666px) 100vw, 666px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">VietTimes: Công nghệ giáo dục và những điều “lạ lùng” của GS. Hồ Ngọc Đại</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Trong buổi sinh hoạt chuyên đề thường kỳ tháng 9 của Câu lạc bộ Cafe [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">09</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/09/dan-tri-gs-ho-ngoc-dai-danh-van-bang-o-vuong-hinh-tron-hoc-sinh-se-khong-tai-mu-chu/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="640" height="400" src="http://clbcafeso.vn/wp-content/uploads/2018/09/gs-dai-2-crop-15364593954431317764307-640x400.png" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/09/gs-dai-2-crop-15364593954431317764307.png 640w, http://clbcafeso.vn/wp-content/uploads/2018/09/gs-dai-2-crop-15364593954431317764307-600x375.png 600w" sizes="(max-width: 640px) 100vw, 640px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Dân Trí: GS Hồ Ngọc Đại: Đánh vần bằng ô vuông, hình tròn, học sinh sẽ không tái mù chữ</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">GS Hồ Ngọc Đại, “cha đẻ” của Công nghệ giáo dục, tác giả cuốn sách [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">09</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/09/08/vnexpress-gs-ho-ngoc-dai-ap-dat-tu-tuong-cua-nguoi-lon-cho-hoc-sinh-la-loi-thoi/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="500" height="333" src="http://clbcafeso.vn/wp-content/uploads/2018/09/GS-Ho-Ngoc-Dai-8095-1536402813.jpg" class="attachment-medium size-medium wp-post-image" alt="" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">VnExpress: GS Hồ Ngọc Đại: Áp đặt tư tưởng của người lớn cho học sinh là lỗi thời</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Ngày 8/9, tại Hà Nội, GS Hồ Ngọc Đại, chủ biên Tiếng Việt lớp 1 Công [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">08</span><br>
-                                            <span class="post-date-month is-xsmall">Sep</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
-                    <div class="col post-item">
-                        <div class="col-inner">
-                            <a href="http://clbcafeso.vn/2018/08/06/ra-mat-cau-lac-bo-cafe-so/" class="plain">
-                                <div class="box box-push box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                        <div class="image-cover" style="padding-top:75%;">
-                                            <img width="533" height="400" src="http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-533x400.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-533x400.jpg 533w, http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-768x576.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-1067x800.jpg 1067w, http://clbcafeso.vn/wp-content/uploads/2018/08/unnamed-1-600x450.jpg 600w" sizes="(max-width: 533px) 100vw, 533px" />
-                                        </div>
-                                    </div><!-- .box-image -->
-                                    <div class="box-text text-center">
-                                        <div class="box-text-inner blog-post-inner">
-
-                                            <h5 class="post-title is-large ">Ra mắt câu lạc bộ Cafe Số</h5>
-                                            <div class="is-divider"></div>
-                                            <p class="from_the_blog_excerpt ">Ngày 4/8/2018, tại 84 Duy Tân, Hà Nội, lễ ra mắt Câu lạc bộ Café [...]					</p>
-
-
-
-                                        </div><!-- .box-text-inner -->
-                                    </div><!-- .box-text -->
-                                    <div class="badge absolute top post-date badge-circle-inside">
-                                        <div class="badge-inner">
-                                            <span class="post-date-day">06</span><br>
-                                            <span class="post-date-month is-xsmall">Aug</span>
-                                        </div>
-                                    </div>
-                                </div><!-- .box -->
-                            </a><!-- .link -->
-                        </div><!-- .col-inner -->
-                    </div><!-- .col -->
                 </div>
-                <div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main">TÀI LIỆU THAM KHẢO</span><b></b></h3></div><!-- .section-title -->
+                @*<div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main">TÀI LIỆU THAM KHẢO</span><b></b></h3></div><!-- .section-title -->
 
                 <div class="row large-columns-3 medium-columns- small-columns-1 slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
                     <div class="col post-item">
@@ -746,7 +327,7 @@
                             </a><!-- .link -->
                         </div><!-- .col-inner -->
                     </div><!-- .col -->
-                </div>
+                </div>*@
             </div><!-- .section-content -->
 
             <style scope="scope">
@@ -764,3 +345,4 @@
     </div>
 
 </main><!-- #main -->
+<script src="~/Scripts/app/angular/news/news.controller.js"></script>
