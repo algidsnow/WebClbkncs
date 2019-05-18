@@ -159,6 +159,7 @@
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RegulationsController.cs" />
+    <Compile Include="Controllers\TesssController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1432,6 +1433,7 @@
     <Content Include="Views\Home\DetailNews.cshtml" />
     <Content Include="Views\ManageMember\Index.cshtml" />
     <Content Include="Views\ManageMember\Create.cshtml" />
+    <Content Include="Views\Tesss\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
