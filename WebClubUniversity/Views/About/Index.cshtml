@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout_User.cshtml";
 }
-<main id="main" class="">
+<main id="main" class="" ng-controller="AboutController">
 
     <div id="content" role="main">
 
@@ -21,7 +21,7 @@
 
                             <div class="text-inner text-center">
 
-                                <h1 class="lead">Về CLB Cafe Số</h1>
+                                <h1 class="lead" ng-bind="about.title">Về CLB </h1>
                                 <p class="lead"> </p>
                             </div>
                         </div><!-- text-box-inner -->
@@ -61,7 +61,7 @@
 
         <div class="row" id="row-214041354">
             <div class="col small-12 large-12">
-                <div class="col-inner">
+                <div class="col-inner" ng-bind="about.content">
                     <p>CLB Café Số là tổ chức xã hội tự nguyện của các nhà báo chuyên nghiệp, các nhà hoạt động trong lĩnh vực truyền thông số; các chuyên gia, nhà nghiên cứu chính sách truyền thông; các doanh nhân hoạt động trong lĩnh vực truyền thông số cùng nhau “<em>Kết nối và lan tỏa sức mạnh tri thức”.</em></p>
                     <p>Nơi kết nối các nhà hoạch định chính sách, các nhà nghiên cứu, các doanh nhân với giới truyền thông, tăng cường hiểu biết lẫn nhau, hợp tác vì sự phát triển của đất nước; Tạo diễn đàn trao đổi về nghiệp vụ, đạo đức truyền thông nhằm nâng cao nhận thức và trình độ cho các thành viên; Phát triển mạng lưới truyền thông số, tạo dựng môi trường hoạt động thuận lợi cho đội ngũ những người làm công tác truyền thông số.</p>
                     <p class="lead">&#8230;.</p>
@@ -105,3 +105,5 @@
     </div>
 
 </main><!-- #main -->
+
+<script src="~/Scripts/app/angular/about/about.controller.js"></script>
