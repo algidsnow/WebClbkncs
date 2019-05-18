@@ -1,0 +1,129 @@
+﻿@model Model.Member
+
+@{
+    ViewBag.Title = "CreateNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateNews</h2>
+
+
+<form  role="form" action=@(Model ==null ? "/ManageMember/Create" : "/ManageMember/Update/"+Model.idMember) method="post" enctype="multipart/form-data">
+	
+    <div class="container">
+        <h4>Member</h4>
+        <hr />
+        <div class="form-group">
+            <label class="control-label">Member</label>
+            <input class="form-control" name="name" value="@(Model == null ? string.Empty : Model.name )" />
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label">Position</label>
+
+            <input class="form-control" name="position" value="@(Model == null ? string.Empty : Model.position )" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Age</label>
+
+            <input type="number" class="form-control" name="age" value="@(Model == null ? string.Empty : Model.age.ToString())" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Address</label>
+
+            <input type="number" class="form-control" name="address" value="@(Model == null ? string.Empty : Model.address )" />
+        </div>
+
+        <di class="form-group">
+            <label class="control-label">PhoneNumber</label>
+            @if (Model == null)
+            {
+                <input type="number" class="form-control" name="phoneNumber" />
+            }
+            else
+            {
+                if (Model.PhoneNumber.ToString() == "")
+                {
+                    <input type="number" class="form-control" name="phoneNumber" />
+                }
+                else
+                {
+                    <input type="number" class="form-control" name="phoneNumber"  value="@Model.PhoneNumber.ToString()"/>
+                }
+            }
+        </di>
+
+        <div class="form-group">
+            <label class="control-label">prioritize</label>
+            <input class="form-control" name="prioritize" value="@(Model == null ? string.Empty : Model.prioritize.ToString())" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Status</label>
+
+            <input class="form-control" name="status" value="@(Model == null ? string.Empty :  Model.status.ToString() )" />
+
+        </div>
+
+        @if (Model == null)
+        {
+            <div class="form-group">
+                <label for="exampleInputFile">
+                    File input
+                </label>
+                <input type="file" class="form-control-file" id="imgInp" name="Url" />
+                <p class="help-block">
+                    Example block-level help text here.
+                </p>
+                <img alt="Image Preview" id="blah" width="100" height="100" />
+            </div>
+        }
+        else
+        {
+            <input type="file" class="form-control-file" id="imgInp" name="ImageUrl" />
+            <div>
+                <div class="form-group">
+                    <input type="text" name="ImageUrl" value="@Model.UrlPresentMember" hidden="hidden" />
+                    <img src="/Assets/images/@Model.UrlPresentMember" alt="Image Preview" id="blah" width="100" height="100" name="ImageUrl" />
+                </div>
+            </div>
+        }
+
+        <br />
+
+        <input type="submit" value="submit" class="btn btn-success" />
+
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</form>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script>
+    $(document).ready(() => {
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    })
+
+</script>
+

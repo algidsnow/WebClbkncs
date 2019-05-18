@@ -1,0 +1,105 @@
+﻿@model PagedList.IPagedList<Model.Member>
+
+@{
+    ViewBag.Title = "Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PagedList.Mvc;
+
+
+<h2>News</h2>
+@*<a href="/Home/Create">Create</a>*@
+
+<p>
+    <a href="/ManageMember/Create" class="btn-success">
+        Members
+    </a>
+</p>
+<div class="container">
+
+
+    <table class="table table-bordered">
+        <tr class="info">
+            <th>
+                Name
+            </th>
+
+            <th>
+                Position
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Adress
+            </th>
+
+            <th>
+                PhoneNumber
+            </th>
+            <th>
+                UrlPresentMember
+
+            </th>
+            <th>
+                prioritize
+            </th>
+            <td>
+                Status
+            </td>
+            <th>
+                Setting
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr class="success">
+            <td>
+                @item.name
+            </td>
+
+
+
+            <td>
+                @item.position
+
+            </td>
+            <td>
+                @item.age
+            </td>
+            <td>
+                @item.address
+            </td>
+            <td>
+                @item.PhoneNumber
+            </td>
+            <td>
+                <img src="~/Assets/images/@item.UrlPresentMember" style="width:100px;height:100px">
+            </td>
+            <td>
+                @item.prioritize
+            </td>
+            <td>
+                @item.status
+            </td>
+            <td>
+
+                <a href="@Url.Action("Update", "ManageMember", new { @id = item.idMember })" class="fas fa-edit"></a>
+
+                <a href="@Url.Action("Delete", "ManageMember", new { @id = item.idMember })" class="fas fa-trash-alt" onclick="return confirm('Are you sure??')"></a>
+
+                <a href="@Url.Action("DetailNews", "Home", new { @id = item.idMember })">Detail</a>
+            </td>
+      
+        </tr>
+
+        }
+        </table>
+    
+    </div>
+<div style="text-align:center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+

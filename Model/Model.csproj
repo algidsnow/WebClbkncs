@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Login.cs" />
+    <Compile Include="Member.cs" />
     <Compile Include="News.cs" />
     <Compile Include="NewsImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

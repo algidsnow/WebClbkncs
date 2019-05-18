@@ -130,13 +130,20 @@ namespace WebClubUniversity.Controllers
                 return View(e);
             }
         }
-      
+
         public ActionResult DeleteNews(int id)
         {
-           var delete= dbcontext.News.SingleOrDefault(x => x.NewsId == id);
+            var delete = dbcontext.News.SingleOrDefault(x => x.NewsId == id);
             delete.status = 3;
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
+        }
+        [HttpGet]
+        public ActionResult DetailNews(int id)
+        {
+            var detailNews = dbcontext.News.SingleOrDefault(x => x.NewsId == id);
+
+            return View(detailNews);
         }
     }
 }
