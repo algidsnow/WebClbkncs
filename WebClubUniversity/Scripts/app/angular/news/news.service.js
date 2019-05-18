@@ -5,7 +5,7 @@
 
     function NewsService($http) {
         this.list = function() {
-            return $http.get('/Index/Index').then((response) => {
+            return $http.get('/Index/listNews').then((response) => {
                 return response;
             }).catch((err) => { return err; });
         };

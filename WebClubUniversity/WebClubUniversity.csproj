@@ -159,7 +159,6 @@
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RegulationsController.cs" />
-    <Compile Include="Controllers\TesssController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1425,7 +1424,6 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\News\posts.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Regulations\Index.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />

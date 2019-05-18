@@ -17,15 +17,15 @@ namespace WebClubUniversity.Controllers
         }
         public JsonResult ListMember()
         {
-            var listMembers = dbcontext.Members.ToList().OrderByDescending(x => x.prioritize).Where(x=>x.status==1).Select(x => new { x.name, x.age, x.position, x.UrlPresentMember });
+            var listMembers = dbcontext.Members.ToList().OrderByDescending(x => x.prioritize).Where(x => x.status == 1).Select(x => new { x.name, x.age, x.position, x.UrlPresentMember });
             return Json(listMembers, JsonRequestBehavior.AllowGet);
         }
         public JsonResult DetailMember()
         {
-            var detailMember = dbcontext.Members.ToList().Select(x => new { x.name, x.age,x.address,x.PhoneNumber, x.position, x.UrlPresentMember });
+            var detailMember = dbcontext.Members.ToList().Select(x => new { x.name, x.age, x.address, x.PhoneNumber, x.position, x.UrlPresentMember });
             return Json(detailMember, JsonRequestBehavior.AllowGet);
         }
 
-
+    }
     
 }
