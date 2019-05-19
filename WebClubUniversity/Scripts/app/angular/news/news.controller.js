@@ -59,9 +59,21 @@
 
         $scope.list = () => {
             NewsService.list().then((response) => {
+                if (response && response.status === 200) {
+                    $scope.listNews = response.data;
+                    console.log($scope.listNews)
+                } else {
+                    $scope.listNews = [];
+                }
+            }).catch((err) => console.log(err));
+        };
+
+        $scope.detail = () => {
+            NewsService.detail({ id: 1 }).then((response) => {
                 console.log(response)
-            }).catch((err) => console.log(err))
+            })
         }
-        $scope.list()
+        $scope.detail();
+        $scope.list();
     }
 }())

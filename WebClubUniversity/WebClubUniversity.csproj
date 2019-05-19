@@ -1432,6 +1432,8 @@
     <Content Include="Views\ManageMember\Index.cshtml" />
     <Content Include="Views\ManageMember\Create.cshtml" />
     <Content Include="Views\Tesss\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

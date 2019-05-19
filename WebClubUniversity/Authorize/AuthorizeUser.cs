@@ -15,15 +15,7 @@ namespace WebClubUniversity.Authorize
 
             if (User_Session == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Index" }));
-            }
-            else
-            {
-
-                if (User_Session != Order)
-                {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Index" }));
-                }
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "UserLogin" }));
             }
         }
     }

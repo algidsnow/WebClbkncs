@@ -19,13 +19,14 @@ namespace WebClubUniversity.Controllers
         public JsonResult Detail(int id)
         {
 
-            var ListDetails = dbcontext.News.Select(x => new { x.Title, x.Content, x.CreateBy, x.CreateDate }).ToList();
-            return Json(ListDetails, JsonRequestBehavior.AllowGet);
+            var info = dbcontext.News.Find(id);
+            return Json(info, JsonRequestBehavior.AllowGet);
         }
         public JsonResult ListNews()
         {
-            var ListNews = dbcontext.News.OrderByDescending(x => x.CreateBy).Where(x=>x.status==1).Select(x => new { x.Title, x.shortContent, x.CreateBy, x.CreateDate,x.UrlRepresent }).ToList();
-            return Json(ListNews, JsonRequestBehavior.AllowGet);
+            //var ListNews = dbcontext.News.OrderByDescending(x => x.CreateBy).Select(x => new { x.Title, x.shortContent, x.CreateBy, x.CreateDate,x.UrlRepresent }).ToList();
+            var listNews = dbcontext.News.OrderByDescending(x => x.CreateBy).ToList();
+            return Json(listNews, JsonRequestBehavior.AllowGet);
         }
     }
 }
