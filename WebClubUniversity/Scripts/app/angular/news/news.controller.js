@@ -3,9 +3,9 @@
         .controller('NewsController', NewsController);
 
 
-    NewsController.$inject = ['$scope'];
+    NewsController.$inject = ['$scope', 'NewsService'];
 
-    function NewsController($scope) {
+    function NewsController($scope, NewsService) {
         $scope.data = function () {
             $scope.newsAction = [
                 {
@@ -56,5 +56,28 @@
 
         };
         $scope.data();
+
+        $scope.list = () => {
+            NewsService.list().then((response) => {
+                if (response && response.status === 200) {
+                    $scope.listNews = response.data;
+                    console.log($scope.listNews)
+                } else {
+                    $scope.listNews = [];
+                }
+            }).catch((err) => console.log(err));
+        };
+        $scope.list();
+
+        $scope.viewInfo = (NewsId) => {
+            NewsService.detail({ id: NewsId }).then((response) => {
+                if (response && response.status === 200) {
+                    $scope.info = response.data;
+                } else {
+                    $scope.info = {};
+                }
+            })
+        }
+        
     }
 }())

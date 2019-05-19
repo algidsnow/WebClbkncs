@@ -5300,7 +5300,7 @@ span.widget-title {
 }
 
 .nav > li > a {
-    font-size: .8em
+    font-size: 0.9em
 }
 
 .nav > li.html {
@@ -7381,7 +7381,7 @@ html {
 }
 
 #wrapper, #main {
-    background-color: #93ffb3;
+    background-color: #fff;
     position: relative
 }
 
