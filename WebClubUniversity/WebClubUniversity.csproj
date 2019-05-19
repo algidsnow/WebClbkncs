@@ -1132,6 +1132,7 @@
     <Content Include="Assets\css\layout.css" />
     <Content Include="Assets\css\Login.css" />
     <Content Include="Assets\css\LoginJs.css" />
+    <Content Include="Assets\css\page.css" />
     <Content Include="Assets\css\plugins\dataTables\dataTables.bootstrap.css" />
     <Content Include="Assets\css\plugins\Login.css" />
     <Content Include="Assets\css\plugins\morris\morris-0.4.3.min.css" />
@@ -1252,7 +1253,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\angular\index\index.controller.js" />
+    <Content Include="Scripts\app\angular\index\index.filter.js" />
+    <Content Include="Scripts\app\angular\index\index.service.js" />
     <Content Include="Scripts\app\angular\news\news.controller.js" />
+    <Content Include="Scripts\app\angular\news\news.filter.js" />
     <Content Include="Scripts\app\angular\news\news.service.js" />
     <Content Include="Scripts\app\angular\app.module.js" />
     <Content Include="Scripts\app\angular\core\app.config.js" />
@@ -1424,7 +1429,6 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\News\posts.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Regulations\Index.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
@@ -1432,6 +1436,10 @@
     <Content Include="Views\Home\DetailNews.cshtml" />
     <Content Include="Views\ManageMember\Index.cshtml" />
     <Content Include="Views\ManageMember\Create.cshtml" />
+    <Content Include="Views\Tesss\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\Home\LoginError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

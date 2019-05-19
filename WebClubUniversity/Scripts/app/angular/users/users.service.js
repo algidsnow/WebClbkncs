@@ -1,13 +1,13 @@
 (function() {
-    angular.module('XuanAnApp')
+    angular.module('app')
         .service('UsersService', UsersService);
     UsersService.$inject = ['$http'];
 
     function UsersService($http) {
-        this.list = function() {
-            return $http.get('/admin/users/list').then((response) => {
-                return response.data
-            }).catch((err) => { return err; })
+        this.ListMember = function () {
+            return $http.get('/Members/ListMember').then((response) => {
+                return response;
+            }).catch((err) => { return err; });
         };
 
     }

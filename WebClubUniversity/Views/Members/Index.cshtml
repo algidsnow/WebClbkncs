@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout_User.cshtml";
 }
 
-<main id="main" class="">
+<main id="main" class="" ng-controller="UsersController">
 
     <div id="content" role="main" class="content-area">
 
@@ -38,7 +38,6 @@
                 #banner-395208758 {
                     padding-top: 200px;
                 }
-
             </style>
         </div><!-- .banner -->
 
@@ -46,259 +45,49 @@
         <div class="text-center"><div class="is-divider divider clearfix"></div></div><!-- .divider -->
         <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
         <div class="row align-center" id="row-2004659920">
-            <div class="col medium-3 small-8 large-3">
+            <div class="col medium-3 small-8 large-3" ng-repeat="item in members">
                 <div class="col-inner">
                     <div class="box has-hover has-hover box-text-bottom">
                         <div class="box-image " style="width:80%;">
                             <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="1315" height="1320" src="http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh.jpg 1315w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-280x280.jpg 280w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-398x400.jpg 398w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-768x771.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-797x800.jpg 797w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-300x300.jpg 300w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-600x602.jpg 600w, http://clbcafeso.vn/wp-content/uploads/2018/07/Nha-bao-Le-Tho-Binh-100x100.jpg 100w" sizes="(max-width: 1315px) 100vw, 1315px" />
+                                <img width="1315" height="1320"
+                                     ng-src="{{item.urlImg}}"
+                                     class="attachment- size-" alt="" />
                             </div>
                         </div><!-- box-image -->
-
                         <div class="box-text text-center">
                             <div class="box-text-inner">
                                 <h4 class="uppercase">
-                                    <span class="person-name">NHÀ BÁO LÊ THỌ BÌNH</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        chủ nhiệm clb
+                                    <span class="person-name" ng-bind="item.name">NHÀ BÁO LÊ THỌ BÌNH</span><br />
+                                    <span class="person-title is-small thin-font op-7" ng-bind="item.position">
+                                        Chủ nhiệm CLB
                                     </span>
                                 </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Phó Chủ tịch kiêm Tổng thư ký Hội truyền thông số Việt Nam</p>
+                                <div class="social-icons follow-icons ">
+                                    <a href="x" target="_blank" data-label="Facebook"
+                                       rel="noopener noreferrer nofollow" class="icon plain facebook tooltip"
+                                       title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank"
+                                                                                                      data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip"
+                                                                                                      title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail"
+                                                                                                                                                                   rel="nofollow" class="icon plain  email tooltip" title="Send us an email">
+                                        <i class="icon-envelop"></i>
+                                    </a><a href="x" target="_blank" rel="noopener noreferrer nofollow"
+                                           data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn">
+                                        <i class="icon-linkedin"></i>
+                                    </a>
+                                </div>
+                                <p ng-bind="item.intro"></p>
                             </div><!-- box-text-inner -->
                         </div><!-- box-text -->
                     </div><!-- .box  -->
 
-
                 </div>
             </div>
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="585" height="707" src="http://clbcafeso.vn/wp-content/uploads/2018/07/37420345_2162415023800020_8480549664825802752_n-1.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/37420345_2162415023800020_8480549664825802752_n-1.jpg 585w, http://clbcafeso.vn/wp-content/uploads/2018/07/37420345_2162415023800020_8480549664825802752_n-1-331x400.jpg 331w" sizes="(max-width: 585px) 100vw, 585px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">dn nguyễn văn hảo</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        phó chủ nhiệm clb
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Phó Chủ tịch Hội Truyền thông số Việt Nam</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                </div>
-            </div>
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="480" height="468" src="http://clbcafeso.vn/wp-content/uploads/2018/07/hntrainttindoingoai3.png" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/hntrainttindoingoai3.png 480w, http://clbcafeso.vn/wp-content/uploads/2018/07/hntrainttindoingoai3-410x400.png 410w" sizes="(max-width: 480px) 100vw, 480px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">nHÀ BÁO Lê nghiêm</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        phó chủ nhiệm CLb
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Nguyên Cục trưởng Cục Thông tin đối ngoại Bộ TT&amp;TT</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                </div>
-            </div>
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="330" height="330" src="http://clbcafeso.vn/wp-content/uploads/2018/07/Mr-Nguyen-Quang-Dong.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/Mr-Nguyen-Quang-Dong.jpg 330w, http://clbcafeso.vn/wp-content/uploads/2018/07/Mr-Nguyen-Quang-Dong-280x280.jpg 280w, http://clbcafeso.vn/wp-content/uploads/2018/07/Mr-Nguyen-Quang-Dong-300x300.jpg 300w, http://clbcafeso.vn/wp-content/uploads/2018/07/Mr-Nguyen-Quang-Dong-100x100.jpg 100w" sizes="(max-width: 330px) 100vw, 330px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">cHUYÊN GIA nguyễn quang đồng</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        Phó chủ nhiệm clb
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Viện trưởng Viện Nghiên cứu chính sách và Phát triển truyền thông</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                    <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
-                </div>
-            </div>
-            <style scope="scope">
-
-            </style>
         </div>
-        <div class="text-center"><div class="is-divider divider clearfix"></div></div><!-- .divider -->
-        <div class="row align-center" id="row-29533437">
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-default box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="491" height="651" src="http://clbcafeso.vn/wp-content/uploads/2018/07/1897853_10152802008747564_7265993592898655844_n-1-1.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/1897853_10152802008747564_7265993592898655844_n-1-1.jpg 491w, http://clbcafeso.vn/wp-content/uploads/2018/07/1897853_10152802008747564_7265993592898655844_n-1-1-302x400.jpg 302w" sizes="(max-width: 491px) 100vw, 491px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">ông vũ kiêm văn</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        Thành viên
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Phó Tổng thư ký Hội truyền thông số</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                </div>
-            </div>
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="714" height="714" src="http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n.jpg 714w, http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n-280x280.jpg 280w, http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n-400x400.jpg 400w, http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n-300x300.jpg 300w, http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n-600x600.jpg 600w, http://clbcafeso.vn/wp-content/uploads/2018/07/26733809_10156988936888098_3978119353652951515_n-100x100.jpg 100w" sizes="(max-width: 714px) 100vw, 714px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">NHÀ BÁO HOÀNG TƯ GIANG</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        thành viên
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Báo điện tử Vietnamnet</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                </div>
-            </div>
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="401" height="344" src="http://clbcafeso.vn/wp-content/uploads/2018/07/37487978_2070322809707148_5935766573984776192_n-1-4.jpg" class="attachment- size-" alt="" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">nHÀ BÁO TRẦN ĐẠI THANH</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        Thành viên
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Báo Pháp luật Thành phố Hồ Chí Minh</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                </div>
-            </div>
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="681" height="661" src="http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image-1.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image-1.jpg 681w, http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image-1-412x400.jpg 412w, http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image-1-600x582.jpg 600w" sizes="(max-width: 681px) 100vw, 681px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">NHÀ BÁO NINH GIANG</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        Thành viên
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Tạp chí VietTimes</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                    <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
-                </div>
-            </div>
-            <style scope="scope">
-
-            </style>
+        <div class="text-center">
+            <div class="is-divider divider clearfix"></div><!-- .divider -->
         </div>
-        <div class="row align-center" id="row-2081905345">
-            <div class="col medium-3 small-8 large-3">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-default box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="835" height="849" src="http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image1-1.jpg" class="attachment- size-" alt="" srcset="http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image1-1.jpg 835w, http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image1-1-393x400.jpg 393w, http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image1-1-768x781.jpg 768w, http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image1-1-787x800.jpg 787w, http://clbcafeso.vn/wp-content/uploads/2018/07/viber-image1-1-600x610.jpg 600w" sizes="(max-width: 835px) 100vw, 835px" />
-                            </div>
-                        </div><!-- box-image -->
-
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name">ông nguyễn phú phúc</span><br />
-                                    <span class="person-title is-small thin-font op-7">
-                                        Thành viên
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons "><a href="x" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail" rel="nofollow" class="icon plain  email tooltip" title="Send us an email"><i class="icon-envelop"></i></a><a href="x" target="_blank" rel="noopener noreferrer nofollow" data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn"><i class="icon-linkedin"></i></a></div>
-                                <p>Chủ quán Cafe New Wind</p>
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
-
-
-                </div>
-            </div>
-            <style scope="scope">
-
-            </style>
-        </div>
-
-
-    </div>
 
 </main><!-- #main -->
+<script src="~/Scripts/app/angular/users/users.controller.js"></script>
+<script src="~/Scripts/app/angular/users/users.service.js"></script>
