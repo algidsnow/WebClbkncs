@@ -1434,6 +1434,7 @@
     <Content Include="Views\Tesss\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\Home\LoginError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
