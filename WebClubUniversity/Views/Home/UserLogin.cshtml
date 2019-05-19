@@ -39,7 +39,7 @@
                         <input style="display:none" />
                         <input type="text" class="form-control form-control1" id="inputEmail" placeholder="User Name" name="UserName">
                         <span class="check-input">
-                            Bạn chưa nhập dữ liệu
+                            Bạn chưa nhập Username
                         </span>
                         <span class="check-input1">
                             Mật khẩu chưa chính xác
@@ -48,44 +48,19 @@
                     <div class="form-group">
                         <input type="password" class="form-control form-control1" id="inputPassword" placeholder="Password" name="Password">
                         <span class="check-input">
-                            Bạn chưa nhập dữ liệu
+                            Bạn chưa nhập Password
                         </span>
                         <span class="check-input1">
                            Tài khoản chưa chính xác
                         </span>
                     </div>
-                    <div class="forgot">
-                        <a href="/Login/AddUser">Tạo mới tài khoản</a>
-                    </div>
-                    <button type="submit" onclick="return checkValid()" class="btn btn-primary">Login</button>
+                    <button type="submit" onclick="return checkValid()" id="btnLogin" class="btn btn-primary">Login</button>
                 </form>
             </div>
-            <p class="botto-text"> Designed by Sunil Rajput</p>
         </div>
     </div>
 
 
 </body>
 </html>
-<script>
-    function checkValid() {
-        var item = document.getElementsByClassName('form-control1');
-        var item1 = document.getElementsByClassName('check-input');
-        var valid = true;
-        for (var i = 0; i < item.length; i++) {
-            if (item[i].value == "") {
-                item[i].style.border = '2px solid red';
-                item1[i].style.display = 'block';
-                valid = false;
-            }
-            if (item[i].value != "") {
-                item[i].style.border = '1px solid #ccc';
-                item1[i].style.display = 'none';
-
-            }
-            if
-        }
-
-        return valid;
-    }
-</script>
+<script src="~/Assets/js/WebValidate.js"></script>

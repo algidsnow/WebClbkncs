@@ -1,18 +1,21 @@
 ﻿@model Model.Login
 
 @{
-    ViewBag.Title = "CreateUser";
+    ViewBag.Title = "Thêm mới Admin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>CreateUser</h2>
+<style>
+    .col-md-10{
+        width:50%;
+    }
+</style>
+<h2>Thêm mới admin</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Login</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -26,8 +29,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                <input type="password" class="form-control" name="PassWord" />
             </div>
         </div>
 
@@ -37,13 +39,14 @@
             </label>
            
             <div class="col-md-10">
-                <input class="form-control" name="checkPassword"  />
+                <input type="password" class="form-control" name="checkPassword"  />
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
+                <a href="/Home/Index" style="width:68px" value="Create" class="btn btn-default" >Back</a>
             </div>
         </div>
     </div>

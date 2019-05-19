@@ -14,11 +14,12 @@ namespace WebClubUniversity.Controllers
 {
     public class HomeController : Controller
     {
+
         WebClubDbContext dbcontext = new WebClubDbContext();
-       [AuthorizeUser(Order =1)]
+        [AuthorizeUser(Order = 1)]
         public ActionResult Index()
         {
-           
+
             return View();
         }
 
@@ -116,26 +117,31 @@ namespace WebClubUniversity.Controllers
             {
                 var hashcode = Crypto.Hash(password, "MD5");
                 var login = dbcontext.Logins.SingleOrDefault(x => x.UserName == userName && x.PassWord == hashcode);
-              
+                
+               
                 if (login == null)
                 {
-                    return RedirectToAction("UserLogin");
+                    ViewBag.error = "Bạn nhập tài khoản hoặc mật khẩu không chính xác";
+                    return View("UserLogin");
                 }
+                Session["username"] = login.UserName;
                 AuthorizeUser.User_Session = login.Roles;
                 return RedirectToAction("Index");
             }
             catch (Exception e)
             {
+             
                 return View(e);
             }
-        } 
-        
-         public ActionResult CreateUser()
-            {
+        }
+
+        public ActionResult CreateUser()
+        {
             return View();
-            }
+        }
 
         [HttpPost]
+      
         public ActionResult CreateUser(FormCollection collection)
         {
 
@@ -143,16 +149,16 @@ namespace WebClubUniversity.Controllers
             user.Roles = 1;
             user.UserName = collection["UserName"];
             var password = Crypto.Hash(collection["PassWord"], "MD5");
-            user.PassWord = password;
-            var checkpass = Crypto.Hash(collection["checkPassword"],"MD5");
-            if (user.PassWord != checkpass)
+            var checkpass = Crypto.Hash(collection["checkPassword"], "MD5");
+            if (password != checkpass)
             {
-                ViewBag.check = "Password và CheckPass không giống nhau";
+                return RedirectToAction("CreateUser");
             }
             else
-                dbcontext.Logins.Add(user);
+            user.PassWord = password;
+            dbcontext.Logins.Add(user);
             dbcontext.SaveChanges();
-            return RedirectToAction("UserLogin");
+            return RedirectToAction("Index");
         }
 
         public ActionResult DeleteNews(int id)
@@ -165,17 +171,58 @@ namespace WebClubUniversity.Controllers
         [HttpGet]
         public ActionResult DetailNews(int id)
         {
-          
+
             var detailNews = dbcontext.News.SingleOrDefault(x => x.NewsId == id);
 
             return View(detailNews);
         }
 
-        public ActionResult LoginError( )
+        public ActionResult LoginError()
         {
 
 
             return View();
         }
+
+        public ActionResult Change()
+        {
+          
+        
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Change(FormCollection frm)
+        {
+            var username = Session["username"].ToString();
+
+
+            Login login = new Login();
+            var user = dbcontext.Logins.SingleOrDefault(x => x.UserName == username);
+            var OldPassWord = Crypto.Hash(frm["PassWord"], "MD5");
+            if(user.PassWord != OldPassWord)
+            {
+                return RedirectToAction("Change");
+            }
+            var newPassWord = Crypto.Hash(frm["NewPassWord"] ,"MD5");
+            var checkPassWord = Crypto.Hash(frm["CheckPassWord"], "MD5");
+            if(user.PassWord != newPassWord && newPassWord == checkPassWord)
+            {
+                login.UserName = user.UserName;
+                login.Roles = user.Roles;
+                login.PassWord = newPassWord;
+                dbcontext.Logins.AddOrUpdate(login);
+                dbcontext.SaveChanges();
+                return RedirectToAction("UserLogin");
+            }
+            return RedirectToAction("Change");
+        }
+
+        public ActionResult LogOut()
+        {
+            Session["username"] = null;
+            return RedirectToAction("UserLogin");
+        }
+
+
     }
 }

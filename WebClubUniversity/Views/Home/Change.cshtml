@@ -1,0 +1,63 @@
+﻿@model Model.Login
+@{
+    ViewBag.Title = "Change";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Change</h2>
+<style>
+    .control-label {
+        text-align: center!important;
+    }
+    .form-control{
+        width:50%;
+    }
+</style>
+<form method="post" action="/Home/Change/">
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                UserName:
+            </label>
+            <div class="col-md-10">
+                <p style="font-size:24px;" name="userName">@Session["userName"]</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                Old Pass:
+            </label>
+
+            <div class="col-md-10">
+                <input type="password" class="form-control" name="PassWord" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                New Pass:
+            </label>
+
+            <div class="col-md-10">
+                <input  type="password" class="form-control" name="NewPassWord" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                check Pass:
+            </label>
+            <div class="col-md-10">
+                <input  type="password" class="form-control" name="CheckPassWord" />
+            </div>
+        </div>
+
+        <button type="submit">change</button>
+        </div>
+</form>
+
+
