@@ -3,6 +3,9 @@
 }
 /* Site Width */
 
+#wrapper, #main {
+    background: #aaf9b4 !important;
+}
 .header-main {
     height: 78px
 }

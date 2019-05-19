@@ -67,13 +67,17 @@
                 }
             }).catch((err) => console.log(err));
         };
+        $scope.list();
 
-        $scope.detail = () => {
-            NewsService.detail({ id: 1 }).then((response) => {
-                console.log(response)
+        $scope.viewInfo = (NewsId) => {
+            NewsService.detail({ id: NewsId }).then((response) => {
+                if (response && response.status === 200) {
+                    $scope.info = response.data;
+                } else {
+                    $scope.info = {};
+                }
             })
         }
-        $scope.detail();
-        $scope.list();
+        
     }
 }())

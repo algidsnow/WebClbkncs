@@ -1,11 +1,11 @@
-﻿(function() {
+﻿(function () {
     angular.module('app')
-        .controller('UsersController', UsersController);
+        .controller('IndexController', IndexController);
 
 
-    UsersController.$inject = ['$scope', 'UsersService'];
+    IndexController.$inject = ['$scope', 'IndexService'];
 
-    function UsersController($scope, UsersService) {
+    function IndexController($scope, IndexService) {
         let membersSample = [
             {
                 name: 'Phạm Thị Diệu Linh ',
@@ -51,11 +51,32 @@
             }
         ]
 
+        $scope.listPosts = () => {
+            IndexService.listPosts().then((response) => {
+                if (response && response.status === 200) {
+                    $scope.listNews = response.data;
+                } else {
+                    $scope.listNews = [];
+                }
+            }).catch((err) => console.log(err));
+        };
+        $scope.listPosts();
+
+        $scope.viewInfo = (NewsId) => {
+            IndexService.detail({ id: NewsId }).then((response) => {
+                if (response && response.status === 200) {
+                    $scope.info = response.data;
+                } else {
+                    $scope.info = {};
+                }
+            })
+        }
+
         $scope.ListMember = () => {
-            UsersService.ListMember().then((response) => {
+            IndexService.ListMember().then((response) => {
                 console.log(response)
                 if (response && response.status === 200) {
-                    $scope.members = response.data && response.data.length ? response.data : membersSample;
+                    $scope.members = $scope.members = response.data && response.data.length ? response.data : membersSample;
                 } else {
                     $scope.members = [];
                 }
