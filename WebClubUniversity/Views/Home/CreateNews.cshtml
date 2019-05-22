@@ -5,22 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CreateNews</h2>
+
 <script src="/Assets/ckfinder/config.js"></script>
 <script src="/Assets/ckeditor/ckeditor.js"></script>
 
 <form method="post" action="/Home/CreateNews/" enctype="multipart/form-data">
     <div class="container">
-        <h4>News</h4>
+        <h2> Create News</h2>
         <hr />
         <div class="form-group">
             <label class="control-label">Title</label>
-            <input class="form-control" name="Title" />
+            <input class="form-control  form-control1" name="Title" />
         </div>
+        <div class="form-group">
+            <label class="control-label">ShortContent</label>
 
+            <textarea class="form-control form-control1" name="ShortContent"></textarea>
+
+        </div>
         <div class="form-group">
             <label class="control-label">Content</label>
-            <textarea name="content" class="form-control"></textarea>
+            <textarea name="content" class="form-control  form-control1"></textarea>
             <Script>
                 CKEDITOR.replace('content', {
                     customConfig: '/Assets/ckeditor/config.js',
@@ -28,24 +33,7 @@
             </Script>
         </div>
 
-        <div class="form-group">
-            <label class="control-label">ShortContent</label>
 
-            <textarea class="form-control" name="ShortContent" ></textarea>
-
-        </div>
-
-        <div class="form-group">
-            <label class="control-label">Status</label>
-
-            <input class="form-control" name="status" />
-
-        </div>
-
-        <div class="form-group">
-            <label class="control-label">prioritize</label>
-            <input class="form-control" name="prioritize" />
-        </div>
         <div class="form-group">
             <label for="exampleInputFile">
                 File input
@@ -59,13 +47,13 @@
 
 
         <br />
-
-        <input type="submit" value="Create" class="btn btn-success" />
-
-    </div>
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <a href="/Home/NewsIndex" style="width:68px" value="Create" class="btn btn-success">Back</a>
+            </div>
+        </div>
+        </div>
 </form>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
