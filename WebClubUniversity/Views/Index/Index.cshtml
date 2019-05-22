@@ -33,7 +33,7 @@
                         <div class="box box-normal box-text-bottom box-blog-post has-hover">
                             <div class="box-image">
                                 <div class="image-cover" style="padding-top:56.25%;">
-                                    <img width="711" height="400" ng-src="{{'/Assets/images/'+item.UrlRepresent | filterUrlImg}}" class="attachment-medium size-medium wp-post-image" alt="" />
+                                    <img width="711" height="400" ng-src="{{'/Assets/images/'+item.UrlRepresent | filterImagerUser}}" class="attachment-medium size-medium wp-post-image" alt="" />
                                 </div>
                             </div><!-- .box-image -->
                             <div class="box-text text-center">
@@ -115,14 +115,14 @@
                         <div class="box-image " style="width:80%;">
                             <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
                                 <img width="1315" height="1320"
-                                     ng-src="{{item.urlImg}}"
+                                     ng-src="{{'/Assets/images/' + item.UrlPresentMember | filterImagerUser}}"
                                      class="attachment- size-" alt="" />
                             </div>
                         </div><!-- box-image -->
                         <div class="box-text text-center">
                             <div class="box-text-inner">
                                 <h4 class="uppercase">
-                                    <span class="person-name" ng-bind="item.name">NHÀ BÁO LÊ THỌ BÌNH</span><br />
+                                    <span class="person-name" ng-bind="item.name"></span><br />
                                     <span class="person-title is-small thin-font op-7" ng-bind="item.position">
                                         Chủ nhiệm CLB
                                     </span>
@@ -140,7 +140,7 @@
                                         <i class="icon-linkedin"></i>
                                     </a>
                                 </div>
-                                <p ng-bind="item.intro"></p>
+                                @*<p ng-bind="item.intro"></p>*@
                             </div><!-- box-text-inner -->
                         </div><!-- box-text -->
                     </div><!-- .box  -->
@@ -148,7 +148,24 @@
                 </div>
             </div>
         </div>
-        <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
+        <div class="gap-element clearfix" style="display:block; height:auto; padding-top:30px" ></div>
+
+        <div id="author">
+            <div class="gap-elemen clearfixt" style="display:block; height:auto; padding-top:30px"></div>
+
+            <h2 class="uppercase" style="text-align: center;">Người sáng lập</h2>
+            <div class="text-center">
+                <div class="is-divider divider clearfix" style="max-width:150px;"></div>
+            </div><!-- .divider -->
+            <div class="author-wrapper">
+                <div class="img-author">
+                    <img src="~/Content/images/author.jpg" class=" img-responsive img-thumbnail" />
+                </div>
+                <div class="info">
+                    <div class="name uppercase">Đặng Thị Hồng Nhung</div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -182,10 +199,10 @@
         </div>
     </div>
 
-
+ 
 
 </main><!-- #main -->
 <script src="~/Scripts/app/angular/index/index.service.js"></script>
 <script src="~/Scripts/app/angular/index/index.controller.js"></script>
-
+<script src="~/Scripts/app/angular/news/news.filter.js"></script>
 <script src="~/Scripts/app/angular/index/index.filter.js"></script>

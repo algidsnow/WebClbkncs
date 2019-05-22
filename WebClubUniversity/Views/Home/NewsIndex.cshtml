@@ -90,8 +90,6 @@
                     @Html.ActionLink(" ", "UpdateNews", new { id = item.NewsId }, new { @class = "fas fa-edit" })
 
                     <a href="@Url.Action("DeleteNews", "Home", new { @id = item.NewsId })" class="fas fa-trash-alt" onclick="return confirm('Are you sure??')"></a>
-
-                    <a href="@Url.Action("DetailNews", "Home", new { @id = item.NewsId })">Detail</a>
                 </td>
 
             </tr>

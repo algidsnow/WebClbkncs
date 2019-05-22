@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class WebAppInitializer :DropCreateDatabaseIfModelChanges<WebClubDbContext>
+    public class WebAppInitializer :CreateDatabaseIfNotExists<WebClubDbContext>
     {
         protected override void Seed(WebClubDbContext context)
         {
