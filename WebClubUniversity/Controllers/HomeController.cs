@@ -138,10 +138,18 @@ namespace WebClubUniversity.Controllers
       
         public ActionResult CreateUser(FormCollection collection)
         {
-
+            var listUser = dbcontext.Logins.ToList();
             Login user = new Login();
             user.Roles = 1;
             user.UserName = collection["UserName"];
+            foreach (var item in listUser)
+            {
+                if(item.UserName == user.UserName)
+                {
+                    ViewBag.ErrorUserName = "Tài khoản đã tồn tại";
+                    return View("CreateUser");
+                }
+            }
             var password = Crypto.Hash(collection["PassWord"], "MD5");
             var checkpass = Crypto.Hash(collection["checkPassword"], "MD5");
             if (password != checkpass)
@@ -183,7 +191,7 @@ namespace WebClubUniversity.Controllers
             Login login = new Login();
             var user = dbcontext.Logins.SingleOrDefault(x => x.UserName == username);
             var OldPassWord = Crypto.Hash(frm["PassWord"], "MD5");
-            if(user.PassWord != OldPassWord)
+            if(user.PassWord == OldPassWord)
             {
                 ViewBag.checkPassOld = "Mật khẩu cũ nhập vào chưa đúng!!!!";
                 return View("Change");
