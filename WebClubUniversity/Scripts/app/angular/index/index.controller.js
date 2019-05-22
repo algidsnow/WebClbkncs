@@ -74,7 +74,6 @@
 
         $scope.ListMember = () => {
             IndexService.ListMember().then((response) => {
-                console.log(response)
                 if (response && response.status === 200) {
                     $scope.members = $scope.members = response.data && response.data.length ? response.data : membersSample;
                 } else {
