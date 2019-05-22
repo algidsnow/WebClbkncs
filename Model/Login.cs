@@ -12,7 +12,7 @@ namespace Model
      
             [Key]
             public string UserName { get; set; }
-            [StringLength(20, ErrorMessage = "Do not Exceed 20 char", MinimumLength = 6)]
+            [StringLength(50, ErrorMessage = "Do not Exceed 20 char", MinimumLength = 6)]
             public string PassWord { get; set; }
             public int? Roles { get; set; }
         }

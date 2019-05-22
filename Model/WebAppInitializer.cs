@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class WebAppInitializer :DropCreateDatabaseAlways<WebClubDbContext>
+    public class WebAppInitializer :CreateDatabaseIfNotExists<WebClubDbContext>
     {
         protected override void Seed(WebClubDbContext context)
         {
             base.Seed(context);
             context.News.Add(
-                  new News { Title = "Title11111111111111111111", Content = "Content", CreateDate = DateTime.Now, UpdateDate = DateTime.Now, UpdateBy = "32131", CreateBy = "dsadsa", prioritize = 1 });
+                  new News { Title = "Title11111111111111111111", Content = "Content", CreateDate = DateTime.Now.ToString("MM/dd/yyyy"), UpdateDate = DateTime.Now.ToString("MM/dd/yyyy"), UpdateBy = "32131", CreateBy = "dsadsa", prioritize = 1 });
             
             context.SaveChanges();
             context.Logins.AddOrUpdate(

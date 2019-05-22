@@ -18,5 +18,7 @@ namespace Model
         }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
+
+        public virtual DbSet<Member> Members { get; set; }
     }
 }

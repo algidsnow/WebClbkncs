@@ -1534,7 +1534,7 @@ li.current-dropdown > .nav-dropdown-full, li.has-dropdown:hover > .nav-dropdown-
 }
 
 .nav > li > a, .nav-dropdown > li > a, .nav-column > li > a {
-    color: rgba(102,102,102,0.85);
+    color: #616161;
     transition: all .2s
 }
 
@@ -1542,9 +1542,13 @@ li.current-dropdown > .nav-dropdown-full, li.has-dropdown:hover > .nav-dropdown-
     display: block
 }
 
-    .nav > li > a:hover, .nav > li.active > a, .nav > li.current > a, .nav > li > a.active, .nav > li > a.current, .nav-dropdown li.active > a, .nav-column li.active > a, .nav-dropdown > li > a:hover, .nav-column li > a:hover {
-        color: rgba(17,17,17,0.85)
-    }
+.nav > li > a:hover, .nav > li.active > a, .nav > li.current > a, .nav > li > a.active, .nav > li > a.current, .nav-dropdown li.active > a, .nav-column li.active > a, .nav-dropdown > li > a:hover, .nav-column li > a:hover {
+    color: rgba(17,17,17,0.85)
+}
+
+.nav > li > a:hover{
+      background: transparent;
+}
 
 .nav li:first-child {
     margin-left: 0 !important
@@ -5292,7 +5296,7 @@ span.widget-title {
 }
 
 [data-line-height="l"] {
-    line-height: 1.4 !important
+    line-height: 1.4 !important;
 }
 
 [data-line-height="xl"] {
@@ -5300,7 +5304,7 @@ span.widget-title {
 }
 
 .nav > li > a {
-    font-size: .8em
+    font-size: 1.1em
 }
 
 .nav > li.html {
@@ -7381,7 +7385,7 @@ html {
 }
 
 #wrapper, #main {
-    background-color: #93ffb3;
+    background-color: #fff;
     position: relative
 }
 

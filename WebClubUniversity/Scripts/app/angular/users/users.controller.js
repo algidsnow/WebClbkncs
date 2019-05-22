@@ -1,21 +1,65 @@
 ﻿(function() {
     angular.module('app')
-        .controller('AboutController', AboutController);
+        .controller('UsersController', UsersController);
 
 
-    AboutController.$inject = ['$scope'];
+    UsersController.$inject = ['$scope', 'UsersService'];
 
-    function AboutController($scope) {
-        $scope.data = function() {
-            $scope.about = 
-                {
-                title: 'Về CLB',
-                    content: `CLB là tổ chức xã hội tự nguyện của các nhà báo chuyên nghiệp, các nhà hoạt động trong lĩnh vực truyền thông số; các chuyên gia, nhà nghiên cứu chính sách truyền thông; các doanh nhân hoạt động trong lĩnh vực truyền thông số cùng nhau “Kết nối và lan tỏa sức mạnh tri thức”.
+    function UsersController($scope, UsersService) {
+        let membersSample = [
+            {
+                name: 'Phạm Thị Diệu Linh ',
+                position: 'Chủ nhiệm CLB KNCS',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            },
+            {
+                name: 'Nguyễn Minh Hưng',
+                position: 'Phó chủ nhiệm kiêm Trưởng ban Dự Án',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            },
+            {
+                name: 'Đỗ Mi Ni ',
+                position: 'Phó chủ nhiệm ',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            },
+            {
+                name: 'Đặng Hồng Nhung ',
+                position: 'Trưởng Ban Marketing MC',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            },
+            {
+                name: 'Nguyễn Công Minh ',
+                position: 'Trưởng Ban Đối Ngoại ',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            },
+            {
+                name: 'Nguyễn Hữu An ',
+                position: 'Trưởng Ban Văn Hóa',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            },
+            {
+                name: 'Võ Hoàng Lâm ',
+                position: 'Trưởng Ban Sự kiện',
+                UrlPresentMember: '/Content/images/user.jpg',
+                intro: 'Trường CLB'
+            }
+        ]
 
-Nơi kết nối các nhà hoạch định chính sách, các nhà nghiên cứu, các doanh nhân với giới truyền thông, tăng cường hiểu biết lẫn nhau, hợp tác vì sự phát triển của đất nước; Tạo diễn đàn trao đổi về nghiệp vụ, đạo đức truyền thông nhằm nâng cao nhận thức và trình độ cho các thành viên; Phát triển mạng lưới truyền thông số, tạo dựng môi trường hoạt động thuận lợi cho đội ngũ những người làm công tác truyền thông số.`
+        $scope.ListMember = () => {
+            UsersService.ListMember().then((response) => {
+                if (response && response.status === 200) {
+                    $scope.members = response.data && response.data.length ? response.data : membersSample;
+                } else {
+                    $scope.members = [];
                 }
-            
+            }).catch((err) => console.log(err));
         };
-        $scope.data();
+        $scope.ListMember();
     }
 }())

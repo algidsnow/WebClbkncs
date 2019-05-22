@@ -155,6 +155,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ManageMemberController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RegulationsController.cs" />
@@ -1131,6 +1132,7 @@
     <Content Include="Assets\css\layout.css" />
     <Content Include="Assets\css\Login.css" />
     <Content Include="Assets\css\LoginJs.css" />
+    <Content Include="Assets\css\page.css" />
     <Content Include="Assets\css\plugins\dataTables\dataTables.bootstrap.css" />
     <Content Include="Assets\css\plugins\Login.css" />
     <Content Include="Assets\css\plugins\morris\morris-0.4.3.min.css" />
@@ -1151,7 +1153,10 @@
     <Content Include="Assets\images\3.jpg" />
     <Content Include="Assets\images\4.jpg" />
     <Content Include="Assets\images\5.jpg" />
+    <Content Include="Assets\images\9a028d3agy1fw4biscl8oj21sg2dsb2d.jpg" />
     <Content Include="Assets\images\9a028d3aly1fnyzq3xge5j20qo0zkagc.jpg" />
+    <Content Include="Assets\images\9a028d3aly1fviox6aeqfj20qo0ziagz.jpg" />
+    <Content Include="Assets\images\9a028d3aly1g27v7r79frj21o02yonpf.jpg" />
     <Content Include="Assets\images\anh-co-thich-nuoc-my-khong.jpg" />
     <Content Include="Assets\images\book-0001.jpg" />
     <Content Include="Assets\images\book-0002.jpg" />
@@ -1160,6 +1165,7 @@
     <Content Include="Assets\images\hinh-anh-hinh-nen-ma-kinh-di-anh-ma-quai-dang-so-nhat-10.png" />
     <Content Include="Assets\images\hinh-nen-thien-nhien-4k-26.jpg" />
     <Content Include="Assets\images\images.jpg" />
+    <Content Include="Assets\images\IMG_6636.jpg" />
     <Content Include="Assets\images\img_lights.jpg" />
     <Content Include="Assets\images\Lo-doc-ten-nguoi-chet-truyen-ma-audio.jpg" />
     <Content Include="Assets\images\ma.jpg" />
@@ -1193,6 +1199,8 @@
     <Content Include="Assets\js\plugins\morris\morris.js" />
     <Content Include="Assets\js\plugins\morris\raphael-2.1.0.min.js" />
     <Content Include="Assets\js\sb-admin.js" />
+    <Content Include="Assets\js\ValidateUser.js" />
+    <Content Include="Assets\js\WebValidate.js" />
     <Content Include="Assets\View\css\images\best-price.png" />
     <Content Include="Assets\View\css\images\best-sellers-directions.png" />
     <Content Include="Assets\View\css\images\body.png" />
@@ -1248,7 +1256,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\angular\index\index.controller.js" />
+    <Content Include="Scripts\app\angular\index\index.filter.js" />
+    <Content Include="Scripts\app\angular\index\index.service.js" />
     <Content Include="Scripts\app\angular\news\news.controller.js" />
+    <Content Include="Scripts\app\angular\news\news.filter.js" />
     <Content Include="Scripts\app\angular\news\news.service.js" />
     <Content Include="Scripts\app\angular\app.module.js" />
     <Content Include="Scripts\app\angular\core\app.config.js" />
@@ -1410,7 +1422,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\NewsIndex.cshtml" />
     <Content Include="Views\Home\CreateNews.cshtml" />
     <Content Include="Views\Home\UserLogin.cshtml" />
@@ -1420,17 +1431,23 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\News\posts.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Regulations\Index.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\News\Good.cshtml" />
+    <Content Include="Views\ManageMember\Index.cshtml" />
+    <Content Include="Views\ManageMember\Create.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\Home\LoginError.cshtml" />
+    <Content Include="Views\Home\Change.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Member\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

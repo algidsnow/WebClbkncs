@@ -14,16 +14,15 @@ namespace Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int NewsId { get; set; }
         [Required]
-        [StringLength(200, ErrorMessage = "Title must be between 10 and 50 char", MinimumLength = 10)]
         public string Title { get; set; }
         [MaxLength()]
         public string Content { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        public string CreateDate { get; set; }
 
         public string CreateBy { get; set; }
 
-        public DateTime? UpdateDate { get; set; }
+        public string UpdateDate { get; set; }
 
         public string UpdateBy { get; set; }
 
