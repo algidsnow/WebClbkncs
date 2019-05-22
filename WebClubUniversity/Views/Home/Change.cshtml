@@ -4,18 +4,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <h2>Change</h2>
 <style>
     .control-label {
-        text-align: center!important;
+        text-align: center !important;
     }
-    .form-control{
-        width:50%;
+
+    .form-control {
+        width: 50%;
+    }
+
+    .check-input {
+        color: red !important;
+    }
+
+    #check-input1 {
+        display: none;
+        color: red !important;
     }
 </style>
 <form method="post" action="/Home/Change/">
-
+    <p style="color:red">@ViewBag.checkPassOld</p>
+    <p  style="color:red">@ViewBag.check</p>
     <div class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-md-2">
@@ -32,7 +44,10 @@
             </label>
 
             <div class="col-md-10">
-                <input type="password" class="form-control" name="PassWord" />
+                <input type="password" class="form-control form-control1" name="PassWord" />
+                <span class="check-input">
+                    Mời nhập password hiện dùng
+                </span>
             </div>
         </div>
 
@@ -42,7 +57,13 @@
             </label>
 
             <div class="col-md-10">
-                <input  type="password" class="form-control" name="NewPassWord" />
+                <input type="password" class="form-control form-control1" id="pass" name="NewPassWord" />
+                <span class="check-input">
+                    Mời nhập password mới
+                </span>
+                <span id="check-input1">
+                    Pass phải trên 6 ký tự
+                </span>
             </div>
         </div>
 
@@ -52,12 +73,17 @@
                 check Pass:
             </label>
             <div class="col-md-10">
-                <input  type="password" class="form-control" name="CheckPassWord" />
+                <input type="password" class="form-control form-control1" name="CheckPassWord" />
+                <span class="check-input">
+                    Mời nhập lại password mới
+                </span>
             </div>
         </div>
-
-        <button type="submit">change</button>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input value="Change" type="submit" onclick="return checkValid()" class="btn btn-default">
+            </div>
         </div>
+    </div>
 </form>
-
-
+<script src="~/Assets/js/ValidateUser.js"></script>

@@ -17,12 +17,6 @@ namespace WebClubUniversity.Controllers
 
         WebClubDbContext dbcontext = new WebClubDbContext();
         [AuthorizeUser(Order = 1)]
-        public ActionResult Index()
-        {
-
-            return View();
-        }
-
         public ActionResult NewsIndex(int page = 1, int pageSize = 10)
         {
             var GetAllNews = dbcontext.News.OrderByDescending(x => x.CreateDate).Where(x => x.status == 1).ToPagedList(page, pageSize);
@@ -38,9 +32,9 @@ namespace WebClubUniversity.Controllers
         public ActionResult CreateNews(News news, HttpPostedFileBase ImageUrl)
         {
             news.CreateDate = DateTime.Now.ToString("MM/dd/yyyy");
-
+            news.status = 1;
+            news.prioritize = 1;
             var addNews = dbcontext.News.Add(news);
-
             NewsImage newsImage = new NewsImage();
             string fileName = "";
             try
@@ -126,7 +120,7 @@ namespace WebClubUniversity.Controllers
                 }
                 Session["username"] = login.UserName;
                 AuthorizeUser.User_Session = login.Roles;
-                return RedirectToAction("Index");
+                return RedirectToAction("NewsIndex");
             }
             catch (Exception e)
             {
@@ -152,13 +146,14 @@ namespace WebClubUniversity.Controllers
             var checkpass = Crypto.Hash(collection["checkPassword"], "MD5");
             if (password != checkpass)
             {
-                return RedirectToAction("CreateUser");
+                ViewBag.check = "Mật khẩu và mật khẩu nhập lại không giống nhau!!!";
+                return View("CreateUser");
             }
             else
             user.PassWord = password;
             dbcontext.Logins.Add(user);
             dbcontext.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("NewsIndex");
         }
 
         public ActionResult DeleteNews(int id)
@@ -168,15 +163,6 @@ namespace WebClubUniversity.Controllers
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
         }
-        [HttpGet]
-        public ActionResult DetailNews(int id)
-        {
-
-            var detailNews = dbcontext.News.SingleOrDefault(x => x.NewsId == id);
-
-            return View(detailNews);
-        }
-
         public ActionResult LoginError()
         {
 
@@ -186,8 +172,6 @@ namespace WebClubUniversity.Controllers
 
         public ActionResult Change()
         {
-          
-        
             return View();
         }
         [HttpPost]
@@ -201,7 +185,8 @@ namespace WebClubUniversity.Controllers
             var OldPassWord = Crypto.Hash(frm["PassWord"], "MD5");
             if(user.PassWord != OldPassWord)
             {
-                return RedirectToAction("Change");
+                ViewBag.checkPassOld = "Mật khẩu cũ nhập vào chưa đúng!!!!";
+                return View("Change");
             }
             var newPassWord = Crypto.Hash(frm["NewPassWord"] ,"MD5");
             var checkPassWord = Crypto.Hash(frm["CheckPassWord"], "MD5");
@@ -214,7 +199,8 @@ namespace WebClubUniversity.Controllers
                 dbcontext.SaveChanges();
                 return RedirectToAction("UserLogin");
             }
-            return RedirectToAction("Change");
+            ViewBag.check = "Mật khẩu mới và mật khẩu nhập lại không giống nhau!!!";
+            return View("Change");
         }
 
         public ActionResult LogOut()

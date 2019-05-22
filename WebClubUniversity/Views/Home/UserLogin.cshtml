@@ -25,13 +25,13 @@
 
 <body id="LoginForm">
     <div class="container">
-      
+
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
                     <h2>Đăng Nhập</h2>
                     <p style="color:red">@ViewBag.error</p>
-                  
+
                 </div>
                 <form id="Login" action="/Home/Userlogin" method="post">
                     <div class="form-group">
@@ -50,9 +50,6 @@
                         <span class="check-input">
                             Bạn chưa nhập Password
                         </span>
-                        <span class="check-input1">
-                           Tài khoản chưa chính xác
-                        </span>
                     </div>
                     <button type="submit" onclick="return checkValid()" id="btnLogin" class="btn btn-primary">Login</button>
                 </form>
@@ -60,7 +57,6 @@
         </div>
     </div>
 
-
+    <script src="~/Assets/js/WebValidate.js"></script>
 </body>
 </html>
-<script src="~/Assets/js/WebValidate.js"></script>

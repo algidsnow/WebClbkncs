@@ -1,18 +1,17 @@
 ﻿(function () {
     angular.module('app')
-        .filter('filterUrlImg', filterUrlImg);
+        .filter('filterImagerUser', filterImagerUser);
 
-    function filterUrlImg() {
+    function filterImagerUser() {
         function inputUrlImg(urlImg) {
-
             if (!urlImg) {
-                return  '/Content/images/img1.jpg'
+                return  '/Content/images/user.jpg'
             } else {
                 let hasImg = urlImg.search('jpg' || 'jpeg' || 'png');
                 if (hasImg > -1) {
                     return urlImg
                 }
-                return '/Content/images/img1.jpg'
+                return '/Content/images/user.jpg'
             }
         }
         return inputUrlImg;
