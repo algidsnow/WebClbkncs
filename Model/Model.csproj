@@ -64,6 +64,15 @@
   <ItemGroup>
     <Compile Include="Login.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="Migrations\201905191310461_InitialCreate.cs" />
+    <Compile Include="Migrations\201905191310461_InitialCreate.Designer.cs">
+      <DependentUpon>201905191310461_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905221318113_Db.cs" />
+    <Compile Include="Migrations\201905221318113_Db.Designer.cs">
+      <DependentUpon>201905221318113_Db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="News.cs" />
     <Compile Include="NewsImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +84,14 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905191310461_InitialCreate.resx">
+      <DependentUpon>201905191310461_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905221318113_Db.resx">
+      <DependentUpon>201905221318113_Db.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

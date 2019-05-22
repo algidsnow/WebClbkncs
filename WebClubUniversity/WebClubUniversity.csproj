@@ -1198,6 +1198,8 @@
     <Content Include="Assets\js\plugins\morris\morris.js" />
     <Content Include="Assets\js\plugins\morris\raphael-2.1.0.min.js" />
     <Content Include="Assets\js\sb-admin.js" />
+    <Content Include="Assets\js\ValidateUser.js" />
+    <Content Include="Assets\js\WebValidate.js" />
     <Content Include="Assets\View\css\images\best-price.png" />
     <Content Include="Assets\View\css\images\best-sellers-directions.png" />
     <Content Include="Assets\View\css\images\body.png" />
@@ -1419,7 +1421,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\NewsIndex.cshtml" />
     <Content Include="Views\Home\CreateNews.cshtml" />
     <Content Include="Views\Home\UserLogin.cshtml" />
@@ -1433,13 +1434,12 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\News\Good.cshtml" />
-    <Content Include="Views\Home\DetailNews.cshtml" />
     <Content Include="Views\ManageMember\Index.cshtml" />
     <Content Include="Views\ManageMember\Create.cshtml" />
-    <Content Include="Views\Tesss\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\CreateUser.cshtml" />
     <Content Include="Views\Home\LoginError.cshtml" />
+    <Content Include="Views\Home\Change.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

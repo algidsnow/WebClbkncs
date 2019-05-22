@@ -46,3 +46,6 @@ D:\web\project\WebClbkncs\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\web\project\WebClbkncs\Model\obj\Debug\Model.csproj.CopyComplete
 D:\web\project\WebClbkncs\Model\obj\Debug\Model.dll
 D:\web\project\WebClbkncs\Model\obj\Debug\Model.pdb
+D:\app\WebClbkncs\Model\obj\Debug\Model.Migrations.InitialCreate.resources
+D:\app\WebClbkncs\Model\obj\Debug\Model.csproj.GenerateResource.cache
+D:\app\WebClbkncs\Model\obj\Debug\Model.Migrations.Db.resources

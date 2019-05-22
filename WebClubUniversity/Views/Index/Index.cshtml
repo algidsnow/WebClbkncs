@@ -33,7 +33,7 @@
                         <div class="box box-normal box-text-bottom box-blog-post has-hover">
                             <div class="box-image">
                                 <div class="image-cover" style="padding-top:56.25%;">
-                                    <img width="711" height="400" ng-src="{{'/Assets/images/'+item.UrlRepresent | filterUrlImg}}" class="attachment-medium size-medium wp-post-image" alt="" />
+                                    <img width="711" height="400" ng-src="{{'/Assets/images/'+item.UrlRepresent | filterImagerUser}}" class="attachment-medium size-medium wp-post-image" alt="" />
                                 </div>
                             </div><!-- .box-image -->
                             <div class="box-text text-center">
@@ -115,7 +115,7 @@
                         <div class="box-image " style="width:80%;">
                             <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
                                 <img width="1315" height="1320"
-                                     ng-src="{{item.urlImg}}"
+                                     ng-src="{{'/Assets/images/' + item.UrlPresentMember}}"
                                      class="attachment- size-" alt="" />
                             </div>
                         </div><!-- box-image -->
@@ -187,5 +187,5 @@
 </main><!-- #main -->
 <script src="~/Scripts/app/angular/index/index.service.js"></script>
 <script src="~/Scripts/app/angular/index/index.controller.js"></script>
-
+<script src="~/Scripts/app/angular/news/news.filter.js"></script>
 <script src="~/Scripts/app/angular/index/index.filter.js"></script>
