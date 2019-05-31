@@ -122,11 +122,12 @@ namespace WebClubUniversity.Controllers
                 var login = dbcontext.Logins.SingleOrDefault(x => x.UserName == userName && x.PassWord == hashcode);
                 
                
-                if (login == null)
+                if (login.PassWord != hashcode && login.UserName != userName)
                 {
                     ViewBag.error = "Bạn nhập tài khoản hoặc mật khẩu không chính xác";
                     return View("UserLogin");
                 }
+
                 Session["username"] = login.UserName;
                 AuthorizeUser.User_Session = login.Roles;
                 return RedirectToAction("NewsIndex");

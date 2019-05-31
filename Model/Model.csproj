@@ -64,6 +64,11 @@
   <ItemGroup>
     <Compile Include="Login.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="Migrations\201905311344005_first.cs" />
+    <Compile Include="Migrations\201905311344005_first.Designer.cs">
+      <DependentUpon>201905311344005_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="News.cs" />
     <Compile Include="NewsImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +80,11 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905311344005_first.resx">
+      <DependentUpon>201905311344005_first.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
