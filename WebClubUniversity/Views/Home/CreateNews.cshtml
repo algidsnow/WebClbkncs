@@ -5,27 +5,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<style>
+    .check-input{
+        display:none;
+        color:red;
+    }
+</style>
 <script src="/Assets/ckfinder/config.js"></script>
 <script src="/Assets/ckeditor/ckeditor.js"></script>
 
-<form method="post" action="/Home/CreateNews/" enctype="multipart/form-data">
+<form method="post" action="/Home/CreateNews/" id="CreateNewsForm" enctype="multipart/form-data" onsubmit="return checkValidate()">
     <div class="container">
         <h2> Create News</h2>
         <hr />
         <div class="form-group">
             <label class="control-label">Title</label>
-            <input class="form-control  form-control1" name="Title" />
+            <input class="form-control  form-control1" name="Title" required />
+            <span class="check-input">
+                Mời nhập Title
+            </span>
         </div>
         <div class="form-group">
             <label class="control-label">ShortContent</label>
 
-            <textarea class="form-control form-control1" name="ShortContent"></textarea>
+            <textarea class="form-control " name="ShortContent" required></textarea>
+            <span class="check-input">
+                Mời nhập Short Content
+            </span>
 
         </div>
         <div class="form-group">
             <label class="control-label">Content</label>
-            <textarea name="content" class="form-control  form-control1"></textarea>
+            <textarea name="content" class="form-control  form-control" required></textarea>
+            <p id="errorContent" style="width:100%;color:red;font-weight: bold;" class="text-hide text-center">Please input Content!</p>
             <Script>
                 CKEDITOR.replace('content', {
                     customConfig: '/Assets/ckeditor/config.js',
@@ -38,9 +50,9 @@
             <label for="exampleInputFile">
                 File input
             </label>
-            <input type="file" class="form-control-file" id="imgInp" name="ImageUrl" />
+            <input type="file" class="form-control-file" id="imgInp" name="ImageUrl"  required/>
             <p class="help-block">
-                Example block-level help text here.
+                File <= 3mb
             </p>
             <img alt="Image Preview" id="blah" width="100" height="100" />
         </div>
@@ -53,12 +65,27 @@
                 <a href="/Home/NewsIndex" style="width:68px" value="Create" class="btn btn-success">Back</a>
             </div>
         </div>
-        </div>
+    </div>
 </form>
+<script src="~/Assets/js/WebValidate.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
+
+    function checkValidate() {
+        var val = CKEDITOR.instances['content'].getData();
+        if (val != '') {
+            $('#errorContent').addClass('text-hide');
+            return true;
+        }
+        else {
+            $('#errorContent').removeClass('text-hide');
+            return false;
+        }
+    }
+
+
     $(document).ready(() => {
         function readURL(input) {
 
@@ -76,6 +103,8 @@
         $("#imgInp").change(function () {
             readURL(this);
         });
+
+
     })
 
 </script>
