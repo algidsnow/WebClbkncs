@@ -312,6 +312,14 @@
     <Content Include="Assets\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
     <Content Include="Assets\ckeditor\plugins\clipboard\dialogs\paste.js" />
     <Content Include="Assets\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\CHANGELOG.txt" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\lang\de.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\lang\en.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\lang\es.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\lang\fr.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\lang\it.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\lang\ru.js" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\plugin.js" />
     <Content Include="Assets\ckeditor\plugins\icons.png" />
     <Content Include="Assets\ckeditor\plugins\icons_hidpi.png" />
     <Content Include="Assets\ckeditor\plugins\image\dialogs\image.js" />
@@ -1398,6 +1406,8 @@
     <Content Include="Scripts\app\angular\libs\angular\LICENSE.md" />
     <Content Include="Scripts\app\angular\libs\angular\package.json" />
     <Content Include="Scripts\app\angular\libs\angular\README.md" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\LICENSE" />
+    <Content Include="Assets\ckeditor\plugins\html5validation\README.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
