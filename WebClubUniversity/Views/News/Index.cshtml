@@ -49,7 +49,7 @@
                     </div><!-- .col -->
 
                 </div>
-                <div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main">BÀI VIẾT HAY</span><b></b></h3></div><!-- .section-title -->
+                @*<div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main">BÀI VIẾT HAY</span><b></b></h3></div><!-- .section-title -->
 
                 <div class="row large-columns-3 medium-columns- small-columns-1 slider row-slider slider-nav-reveal" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
                     <div class="col post-item" ng-repeat="item in newsGood">
@@ -82,8 +82,9 @@
                             </a><!-- .link -->
                         </div><!-- .col-inner -->
                     </div><!-- .col -->
-                </div>
-            </div><!-- .section-content -->
+                </div>*@
+           
+                </div><!-- .section-content -->
         </section>
 
 
@@ -108,7 +109,8 @@
                         <img class="img-thumbnail" ng-src="{{'/Assets/images/'+info.UrlRepresent | filterUrlImg}}" alt="" />
                     </div>
                     <div class="content">
-                        <p ng-bind="info.Content"></p>
+                        @*<p ng-bind="info.Content"></p>*@
+                        <div id="detail-content"></div>
                     </div>
 
                 </div>
@@ -124,3 +126,4 @@
 <script src="~/Scripts/app/angular/news/news.controller.js"></script>
 <script src="~/Scripts/app/angular/news/news.service.js"></script>
 <script src="~/Scripts/app/angular/news/news.filter.js"></script>
+<script src="~/Scripts/app/angular/shared/shared.directive.js"></script>
