@@ -10,7 +10,7 @@
 <script src="/Assets/ckfinder/config.js"></script>
 <script src="/Assets/ckeditor/ckeditor.js"></script>
 
-<form method="post" action="/Home/UpdateNews/@Model.NewsId" enctype="multipart/form-data">
+<form method="post" action="/Home/UpdateNews/@Model.NewsId" enctype="multipart/form-data" onsubmit="return checkValidate()">
 
 
     <div class="container">
@@ -18,12 +18,19 @@
         <hr />
         <div class="form-group">
             <label class="control-label">Title</label>
-            <input class="form-control" name="Title" value="@Model.Title" />
+            <input class="form-control form-control1" name="Title" value="@Model.Title" required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Short Content</label>
+
+            <textarea class="form-control" name="shortContent" required>@Model.shortContent</textarea>
         </div>
 
         <div class="form-group">
             <label class="control-label">Content</label>
-            <textarea name="content" class="form-control">@Html.Raw(Model.Content)</textarea>
+            <textarea name="content" id="content" class="form-control">@Html.Raw(Model.Content)</textarea>
+            <p id="errorContent" style="width:100%;color:red;font-weight: bold;" class="text-hide text-center">Please input Content!</p>
             <Script>
                 CKEDITOR.replace('content', {
                     customConfig: '/Assets/ckeditor/config.js',
@@ -31,32 +38,11 @@
             </Script>
         </div>
 
-        <div class="form-group">
-            <label class="control-label">Status</label>
-
-            <textarea class="form-control" name="shortContent">@Model.shortContent</textarea>
-
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label">Status</label>
-
-            <input class="form-control" name="status" value="@Model.status" />
-
-        </div>
-
-        <div class="form-group">
-            <label class="control-label">prioritize</label>
-
-            <input class="form-control" name="prioritize" value=@Model.prioritize />
-
-        </div>
 
 
         <div class="form-group">
             <label for="exampleInputFile">
-                File input
+                File <=3mb
             </label>
             <input type="file" class="form-control-file" id="imgInp" name="ImageUrl" />
             <input type="text" name="ImageUrl" value="@Model.UrlRepresent" hidden="hidden" />
@@ -77,6 +63,19 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
+
+    function checkValidate() {
+        var val = CKEDITOR.instances['content'].getData();
+        if (val != '') {
+            $('#errorContent').addClass('text-hide');
+            return true;
+        }
+        else {
+            $('#errorContent').removeClass('text-hide');
+            return false;
+        }
+    }
+
     $(document).ready(() => {
         function readURL(input) {
 

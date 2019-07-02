@@ -22,16 +22,18 @@ namespace WebClubUniversity.Controllers
             var GetAllNews = dbcontext.News.OrderByDescending(x => x.CreateDate).Where(x => x.status == 1).ToPagedList(page, pageSize);
             return View(GetAllNews);
         }
-
+        [AuthorizeUser(Order = 1)]
         public ActionResult CreateNews()
         {
             return View();
         }
 
         [HttpPost, ValidateInput(false)]
+       
         public ActionResult CreateNews(News news, HttpPostedFileBase ImageUrl)
         {
-            news.CreateDate = DateTime.Now.ToString("MM/dd/yyyy");
+            news.CreateDate = DateTime.Now.ToString("dd/MM/yyyy");
+            news.CreateBy = Session["username"].ToString();
             news.status = 1;
             news.prioritize = 1;
             var addNews = dbcontext.News.Add(news);
@@ -57,6 +59,7 @@ namespace WebClubUniversity.Controllers
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
         }
+        [AuthorizeUser(Order = 1)]
         public ActionResult UpdateNews(int id)
         {
 
@@ -69,7 +72,9 @@ namespace WebClubUniversity.Controllers
         public ActionResult UpdateNews(News news, HttpPostedFileBase ImageUrl, int id)
         {
             var update = dbcontext.News.Find(id);
+            
             news.CreateDate = update.CreateDate;
+            news.CreateBy = update.CreateBy;
             string fileName = "";
             if (ImageUrl == null)
             {
@@ -92,7 +97,11 @@ namespace WebClubUniversity.Controllers
 
             }
             news.NewsId = id;
-            news.UpdateDate = DateTime.Now.ToString("MM/dd/yyyy");
+            news.UpdateDate = DateTime.Now.ToString("dd/MM/yyyy");
+            news.status = 1;
+            news.prioritize = 1;
+            news.UpdateBy = Session["username"].ToString();
+            
             dbcontext.News.AddOrUpdate(news);
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
@@ -128,7 +137,7 @@ namespace WebClubUniversity.Controllers
                 return View(e);
             }
         }
-
+        [AuthorizeUser(Order = 1)]
         public ActionResult CreateUser()
         {
             return View();
@@ -163,7 +172,7 @@ namespace WebClubUniversity.Controllers
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
         }
-
+        
         public ActionResult DeleteNews(int id)
         {
             var delete = dbcontext.News.SingleOrDefault(x => x.NewsId == id);
@@ -177,7 +186,7 @@ namespace WebClubUniversity.Controllers
 
             return View();
         }
-
+        [AuthorizeUser(Order = 1)]
         public ActionResult Change()
         {
             return View();
@@ -202,6 +211,7 @@ namespace WebClubUniversity.Controllers
             {
                 login.UserName = user.UserName;
                 login.Roles = user.Roles;
+              
                 login.PassWord = newPassWord;
                 dbcontext.Logins.AddOrUpdate(login);
                 dbcontext.SaveChanges();
