@@ -120,13 +120,20 @@ namespace WebClubUniversity.Controllers
             {
                 var hashcode = Crypto.Hash(password, "MD5");
                 var login = dbcontext.Logins.SingleOrDefault(x => x.UserName == userName && x.PassWord == hashcode);
-                
-               
+
                 if (login == null)
                 {
                     ViewBag.error = "Bạn nhập tài khoản hoặc mật khẩu không chính xác";
                     return View("UserLogin");
                 }
+
+                if ( login != null &&login.PassWord != hashcode && login.UserName != userName)
+                {
+                    ViewBag.error = "Bạn nhập tài khoản hoặc mật khẩu không chính xác";
+                    return View("UserLogin");
+                }
+             
+
                 Session["username"] = login.UserName;
                 AuthorizeUser.User_Session = login.Roles;
                 return RedirectToAction("NewsIndex");
