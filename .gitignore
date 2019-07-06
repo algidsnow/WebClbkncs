@@ -1,4 +1,7 @@
 /.vs
 /WebClubUniversity/obj
 /WebClubUniversity/bin
+/WebClubUniversity/bin/*
 /Model/bin
+/Model/obj
+WebClubUniversity/bin
