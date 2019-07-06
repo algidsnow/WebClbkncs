@@ -1,3 +1,4 @@
-.vs
-WebClubUniversity/obj
-WebClubUniversity/bin
+/.vs
+/WebClubUniversity/obj
+/WebClubUniversity/bin
+/Model/bin
