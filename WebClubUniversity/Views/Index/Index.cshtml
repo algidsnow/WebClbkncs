@@ -10,199 +10,368 @@
     Layout = "~/Views/Shared/_Layout_User.cshtml";
 }
 
-<style>
-    .carousel-item img {
-        height: 300px;
-    }
-</style>
-<main id="main" class="" ng-controller="IndexController">
-
-    <div id="content" role="main" class="content-area">
-        <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
-
-        <h2 style="text-align: center;">TIN TỨC</h2>
-        <div class="text-center">
-            <div class="is-divider divider clearfix" style="max-width:150px;"></div>
-        </div><!-- .divider -->
-
-        <div class="row large-columns-3 medium-columns- small-columns-1 slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-            <div class="col post-item" ng-repeat="item in listNews">
-                <div class="col-inner">
-                    <a href="#detail" data-toggle="modal" class="plain" ng-click="viewInfo(item.NewsId)">
-                        @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>*@
-                        <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                            <div class="box-image">
-                                <div class="image-cover" style="padding-top:56.25%;">
-                                    <img width="711" height="400" ng-src="{{'/Assets/images/'+item.UrlRepresent | filterImagerUser}}" class="attachment-medium size-medium wp-post-image" alt="" />
-                                </div>
-                            </div><!-- .box-image -->
-                            <div class="box-text text-center">
-                                <div class="box-text-inner blog-post-inner">
-
-                                    <h5 class="post-title is-large " ng-bind="item.Title">Sinh hoạt chuyên đề tháng 2/2019</h5>
-                                    <div class="is-divider"></div>
-                                    <p class="from_the_blog_excerpt " ng-bind="item.shortContent">Câu lạc bộ Cafe Số trân trọng kính mời quý anh/chị Nhà báo, Phóng viên [...]					</p>
-
-
-
-                                </div><!-- .box-text-inner -->
-                            </div><!-- .box-text -->
-                            <div class="badge absolute top post-date badge-outline">
-                                <div class="badge-inner">
-                                    <span class="post-date-day">13</span><br>
-                                    <span class="post-date-month is-xsmall">Feb</span>
-                                </div>
-                            </div>
-                        </div><!-- .box -->
-                    </a>
-                </div><!-- .col-inner -->
-            </div><!-- .col -->
-            <!-- Modal -->
-
-        </div>
-        @*<h2 class="uppercase" style="text-align: center;">hình ảnh clb</h2>
-        <div class="text-center">
-            <div class="is-divider divider clearfix" style="max-width:150px;"></div>
-        </div>*@
-        @*<div class="banner-grid-wrapper">
-            <div id="banner-grid-1501484428" class="banner-grid row row-grid row-large" data-packery-options="">
-                <div class="col grid-col small-13 large-4 grid-col-1-2">
-                    <div class="col-inner">
-                        <img src="~/Content/images/img1.jpg" alt="Alternate Text" />
+<section class="cd-hero">
+    <ul class="cd-hero-slider autoplay">
+        <!--
+            <ul class="cd-hero-slider autoplay"> for slider auto play
+            <ul class="cd-hero-slider"> for disabled auto play
+        -->
+        <li class="selected first-slide">
+            <div class="cd-full-width">
+                <div class="tm-slide-content-div slide-caption">
+                    <span>Introduction to</span>
+                    <h2>Creative Meteor</h2>
+                    <p>Phasellus interdum tortor sem. Quisque sit amet condimentum sem. Phasellus luctus, felis sit amet pulvinar luctus.</p>
+                    <div class="primary-button">
+                        <a href="#" class="scroll-link" data-id="about">Discover More</a>
                     </div>
                 </div>
-                <div class="col grid-col small-14 large-4 grid-col-1-3">
-                    <div class="col-inner">
-                        <img src="~/Content/images/img1.jpg" alt="Alternate Text" />
-                    </div>
-                </div>
-                <div class="col grid-col small-13 large-4 grid-col-1-2">
-                    <div class="col-inner">
-                        <img src="~/Content/images/img1.jpg" alt="Alternate Text" />
-                    </div>
-                </div>
-                <div class="col grid-col small-13 large-4 grid-col-1-2">
-                    <div class="col-inner">
-                        <img src="~/Content/images/img1.jpg" alt="Alternate Text" />
-                    </div>
-                </div>
-                <div class="col grid-col small-14 large-4 grid-col-1-3">
-                    <div class="col-inner">
-                        <img src="~/Content/images/img1.jpg" alt="Alternate Text" />
-                    </div>
-                </div>
-                <div class="col grid-col small-13 large-4 grid-col-1-2">
-                    <div class="col-inner">
-                        <img src="~/Content/images/img1.jpg" alt="Alternate Text" />
-                    </div>
-                </div>
-            </div><!-- .banner-grid .row .grid -->
-        </div><!-- .banner-grid-wrapper -->*@
-        <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
-        <h1 class="uppercase" style="text-align: center;">
-            <span style="font-size: 100%;">
-                Thành viên clb
-            </span>
-        </h1>
-        <div class="text-center">
-            <div class="is-divider divider clearfix" style="max-width:150px;"></div>
-        </div>
-        <div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
-        <div class="row align-center" id="row-354133162">
-            <div class="col medium-3 small-8 large-3" ng-repeat="item in members">
-                <div class="col-inner">
-                    <div class="box has-hover has-hover box-text-bottom">
-                        <div class="box-image " style="width:80%;">
-                            <div class="box-image-inner image-cover" style="border-radius:100%;padding-top:100%;">
-                                <img width="1315" height="1320"
-                                     ng-src="{{'/Assets/images/' + item.UrlPresentMember | filterImagerUser}}"
-                                     class="attachment- size-" alt="" />
-                            </div>
-                        </div><!-- box-image -->
-                        <div class="box-text text-center">
-                            <div class="box-text-inner">
-                                <h4 class="uppercase">
-                                    <span class="person-name" ng-bind="item.name"></span><br />
-                                    <span class="person-title is-small thin-font op-7" ng-bind="item.position">
-                                        Chủ nhiệm CLB
-                                    </span>
-                                </h4>
-                                <div class="social-icons follow-icons ">
-                                    <a href="x" target="_blank" data-label="Facebook"
-                                       rel="noopener noreferrer nofollow" class="icon plain facebook tooltip"
-                                       title="Follow on Facebook"><i class="icon-facebook"></i></a><a href="x" target="_blank"
-                                                                                                      data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip"
-                                                                                                      title="Follow on Twitter"><i class="icon-twitter"></i></a><a href="mailto:x" data-label="E-mail"
-                                                                                                                                                                   rel="nofollow" class="icon plain  email tooltip" title="Send us an email">
-                                        <i class="icon-envelop"></i>
-                                    </a><a href="x" target="_blank" rel="noopener noreferrer nofollow"
-                                           data-label="LinkedIn" class="icon plain  linkedin tooltip" title="Follow on LinkedIn">
-                                        <i class="icon-linkedin"></i>
-                                    </a>
-                                </div>
-                                @*<p ng-bind="item.intro"></p>*@
-                            </div><!-- box-text-inner -->
-                        </div><!-- box-text -->
-                    </div><!-- .box  -->
+            </div> <!-- .cd-full-width -->
+        </li>
+    </ul> <!-- .cd-hero-slider -->
 
+    <div class="cd-slider-nav">
+        <nav>
+            <span class="cd-marker item-1"></span>
+
+            <ul>
+                <li class="selected"><a href="#0"></a></li>
+                <li><a href="#0"></a></li>
+                <li><a href="#0"></a></li>
+            </ul>
+        </nav>
+    </div> <!-- .cd-slider-nav -->
+</section> <!-- .cd-hero -->
+
+<div id="about" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h4>What We Do</h4>
+                    <div class="line-dec"></div>
                 </div>
             </div>
         </div>
-        <div class="gap-element clearfix" style="display:block; height:auto; padding-top:30px" ></div>
-
-        <div id="author">
-            <div class="gap-elemen clearfixt" style="display:block; height:auto; padding-top:30px"></div>
-
-            <h2 class="uppercase" style="text-align: center;">Người sáng lập</h2>
-            <div class="text-center">
-                <div class="is-divider divider clearfix" style="max-width:150px;"></div>
-            </div><!-- .divider -->
-            <div class="author-wrapper">
-                <div class="img-author">
-                    <img src="~/Content/images/author.jpg" class=" img-responsive img-thumbnail" />
-                </div>
-                <div class="info">
-                    <div class="name uppercase">Đặng Thị Hồng Nhung</div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item first-service">
+                    <div class="icon"></div>
+                    <h4>Easy Customizations</h4>
+                    <p>Meteor is free HTML website template by Tooplate. Feel free to use this layout for your project.</p>
                 </div>
             </div>
-        </div>
-
-
-
-    </div>
-    <div class="modal fade" id="detail" role="dialog">
-        <div class="modal-dialog  modal-lg">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h6>Tin về CLB</h6>
-                    <h4 class="modal-title" ng-bind="info.Title"></h4>
-                    <small ng-bind="info.CreateDate"></small>
-                </div>
-                <div class="modal-body">
-                    <div class="img-profile text-center" style="margin-bottom: 20px;">
-                        <img class="img-thumbnail" ng-src="{{'/Assets/images/'+info.UrlRepresent | filterUrlImg}}" alt="" />
-                    </div>
-                    <div class="content">
-                        <p ng-bind="info.Content"></p>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <a href="/News/Index" class="btn btn-primary">Tin tức khác</a>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item second-service">
+                    <div class="icon"></div>
+                    <h4>Creative Ideas</h4>
+                    <p>Biodiesel schltz suculents phone cliche ramps snackwave coloring book tumeric poke, typewriter.</p>
                 </div>
             </div>
-
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item third-service">
+                    <div class="icon"></div>
+                    <h4>Good Profit</h4>
+                    <p>Biodiesel schltz suculents phone cliche ramps snackwave coloring book tumeric poke, typewriter.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item fourth-service">
+                    <div class="icon"></div>
+                    <h4>Open To Public</h4>
+                    <p>Biodiesel schltz suculents phone cliche ramps snackwave coloring book tumeric poke, typewriter.</p>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
- 
+<div id="what-we-do">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="left-text">
+                    <h4>New offers just arrived,<br>Get it now and take profit.</h4>
+                    <p>Gochujang pitchfork post-ironic hammock kombucha fanny pack cronut. Raw denim chicharrones semiotics af truffaut pinterest. Distillery letterpress authentic adaptogen. Meditation schlitz humblebrag photo booth celiac cliche chartreuse.<br><br>Pinterest 90's wolf celiac dreamcatcher listicle deep v semiotics. Intelligentsia literally meggings trust fund put a bird on it. Shoreditch crucifix artisan pug shaman twee. Health goth bicycle rights retro iPhone.</p>
+                    <ul>
+                        <li>
+                            <div class="white-button">
+                                <a href="#" class="scroll-link" data-id="portfolio">Discover More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="primary-button">
+                                <a href="#">Purchase Now</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right-image">
+                    <img src="~/Content/images/tool/what-we-do-right-image.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-</main><!-- #main -->
-<script src="~/Scripts/app/angular/index/index.service.js"></script>
+
+<div id="portfolio" class="page-section">
+    <div class="content-wrapper">
+        <div class="inner-container container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Our Portfolio</h4>
+                        <div class="line-dec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-holder-3">
+                <div class="filter-categories">
+                    <ul class="project-filter">
+                        <li class="filter" data-filter="all"><span>All</span></li>
+                        <li class="filter" data-filter="nature"><span>Nature</span></li>
+                        <li class="filter" data-filter="workspace"><span>Workspace</span></li>
+                        <li class="filter" data-filter="city"><span>City</span></li>
+                        <li class="filter" data-filter="technology"><span>Technology</span></li>
+                    </ul>
+                </div>
+                <div class="projects-holder">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 project-item mix workspace">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_01.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_01.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix workspace">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_02.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_02.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix technology">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_03.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_03.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix city">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_04.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_04.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix nature">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_05.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_05.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix technology">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_06.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_06.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix workspace">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_07.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_07.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix city">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="~/Content/images/tool/portfolio_08.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="~/Content/images/tool/portfolio_big_08.jpg" data-lightbox="image-1"><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="blog" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h4>Our Blog Posts</h4>
+                    <div class="line-dec"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="blog-item b1">
+                    <div class="thumb">
+                        <img src="~/Content/images/tool/blog_01.jpg" alt="">
+                        <div class="text-content">
+                            <h4>Delecioius Food Served</h4>
+                            <span>Posted: <em>George</em>  /  Date: <em>11 Aug 2017</em>  /  Category: <em>Design</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-item second-blog b2">
+                    <div class="thumb">
+                        <img src="~/Content/images/tool/blog_02.jpg" alt="">
+                        <div class="text-content">
+                            <h4>Creative &amp; Clean Workspace</h4>
+                            <span>Posted: <em>Kerley</em>  /  Date: <em>24 Jul 2017</em>  /  Category: <em>Artwork</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-item b3">
+                    <div class="thumb">
+                        <img src="~/Content/images/tool/blog_03.jpg" alt="">
+                        <div class="text-content">
+                            <h4>Crashed Plane Captured</h4>
+                            <span>Posted: <em>Johnny</em>  /  Date: <em>16 Jul 2017</em>  /  Category: <em>Branding</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pop">
+                    <span>✖</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis neque lacinia, porta nulla in, pellentesque ante. Vivamus in luctus mauris, non pharetra nibh. Morbi porttitor nisl sit amet velit pellentesque consequat. Etiam blandit libero turpis, id vehicula leo posuere a. In vel massa sollicitudin, tincidunt massa et, tincidunt ex.<br><br>Duis volutpat condimentum mollis. Sed eleifend libero ut viverra mattis. Suspendisse consectetur diam dolor, ut efficitur sem finibus vel. Vivamus tristique lacus sed dapibus varius. Fusce pharetra, quam quis congue pretium, ante dui imperdiet ipsum, eget lobortis leo leo sed diam.</p>
+                </div>
+                <div class="pop2">
+                    <span>✖</span>
+                    <p>Praesent purus leo, aliquet et efficitur id, pulvinar scelerisque enim. Maecenas a arcu sagittis, ornare ante ut, suscipit lectus. Donec dolor ipsum, laoreet nec metus non, tempus elementum massa. Donec non elit rhoncus, vestibulum enim sed, rutrum arcu. Vestibulum et purus ac diam condimentum volutpat sed ac est. Phasellus interdum tortor sem. Quisque sit amet condimentum sem. Phasellus luctus, felis sit amet pulvinar luctus, lectus dui mattis tellus, et placerat nunc ante at lacus.<br><br>Vivamus vestibulum, nisi sed placerat accumsan, felis felis venenatis tortor, vel condimentum arcu neque vel mauris. Donec a magna gravida, egestas libero non, molestie massa. Integer ut dolor eget magna congue gravida ut at arcu. Vivamus maximus neque quis luctus tempus. Vestibulum consequat a justo id feugiat. </p>
+                </div>
+                <div class="pop3">
+                    <span>✖</span>
+                    <p>Nullam rhoncus, orci et iaculis sodales, quam lectus suscipit augue, ut auctor massa dolor id metus. Nulla porta ut diam sodales dignissim. Ut sit amet augue vel justo laoreet dignissim. Maecenas vitae sollicitudin eros. In commodo placerat cursus. Quisque malesuada, nisl ac lacinia commodo, justo eros maximus ex, quis cursus odio erat at neque. Sed tincidunt eu dolor eget posuere.<br><br>Curabitur sit amet elit sit amet ligula eleifend aliquam quis eget quam. Mauris id mi nec justo venenatis tincidunt at ac massa. Sed et volutpat nunc. Quisque at urna quam. Duis sit amet neque eget quam iaculis iaculis. Quisque maximus porta elementum. Nam ac mattis erat, quis accumsan odio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fun-facts">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fact-item">
+                    <div class="counter" data-count="926">0</div>
+                    <span>Regular Visitors</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fact-item">
+                    <div class="counter" data-count="214">0</div>
+                    <span>Finished Projects</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fact-item">
+                    <div class="counter" data-count="118">0</div>
+                    <span>Happy Clients</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fact-item">
+                    <div class="counter" data-count="16">0</div>
+                    <span>Total Awards</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h4>Contact Us</h4>
+                    <div class="line-dec"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="map">
+                    <img src="~/Content/images/tool/map.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <form id="contact" action="" method="post">
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required></textarea>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="btn">Send Message</button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*<script src="~/Scripts/app/angular/index/index.service.js"></script>
 <script src="~/Scripts/app/angular/index/index.controller.js"></script>
 <script src="~/Scripts/app/angular/news/news.filter.js"></script>
-<script src="~/Scripts/app/angular/index/index.filter.js"></script>
+<script src="~/Scripts/app/angular/index/index.filter.js"></script>*@
