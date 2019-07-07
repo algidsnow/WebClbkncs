@@ -29,7 +29,7 @@ namespace WebClubUniversity.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-       
+
         public ActionResult CreateNews(News news, HttpPostedFileBase ImageUrl)
         {
             news.CreateDate = DateTime.Now.ToString("dd/MM/yyyy");
@@ -72,7 +72,7 @@ namespace WebClubUniversity.Controllers
         public ActionResult UpdateNews(News news, HttpPostedFileBase ImageUrl, int id)
         {
             var update = dbcontext.News.Find(id);
-            
+
             news.CreateDate = update.CreateDate;
             news.CreateBy = update.CreateBy;
             string fileName = "";
@@ -101,7 +101,7 @@ namespace WebClubUniversity.Controllers
             news.status = 1;
             news.prioritize = 1;
             news.UpdateBy = Session["username"].ToString();
-            
+
             dbcontext.News.AddOrUpdate(news);
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
@@ -125,12 +125,12 @@ namespace WebClubUniversity.Controllers
                     return View("UserLogin");
                 }
 
-                if ( login != null &&login.PassWord != hashcode && login.UserName != userName)
+                if (login != null && login.PassWord != hashcode && login.UserName != userName)
                 {
                     ViewBag.error = "Bạn nhập tài khoản hoặc mật khẩu không chính xác";
                     return View("UserLogin");
                 }
-             
+
 
                 Session["username"] = login.UserName;
                 AuthorizeUser.User_Session = login.Roles;
@@ -138,7 +138,7 @@ namespace WebClubUniversity.Controllers
             }
             catch (Exception e)
             {
-             
+
                 return View(e);
             }
         }
@@ -149,7 +149,7 @@ namespace WebClubUniversity.Controllers
         }
 
         [HttpPost]
-      
+
         public ActionResult CreateUser(FormCollection collection)
         {
             var listUser = dbcontext.Logins.ToList();
@@ -158,7 +158,7 @@ namespace WebClubUniversity.Controllers
             user.UserName = collection["UserName"];
             foreach (var item in listUser)
             {
-                if(item.UserName == user.UserName)
+                if (item.UserName == user.UserName)
                 {
                     ViewBag.ErrorUserName = "Tài khoản đã tồn tại";
                     return View("CreateUser");
@@ -172,12 +172,12 @@ namespace WebClubUniversity.Controllers
                 return View("CreateUser");
             }
             else
-            user.PassWord = password;
+                user.PassWord = password;
             dbcontext.Logins.Add(user);
             dbcontext.SaveChanges();
             return RedirectToAction("NewsIndex");
         }
-        
+
         public ActionResult DeleteNews(int id)
         {
             var delete = dbcontext.News.SingleOrDefault(x => x.NewsId == id);
@@ -205,18 +205,18 @@ namespace WebClubUniversity.Controllers
             Login login = new Login();
             var user = dbcontext.Logins.SingleOrDefault(x => x.UserName == username);
             var OldPassWord = Crypto.Hash(frm["PassWord"], "MD5");
-            if(user.PassWord == OldPassWord)
+            if (user.PassWord == OldPassWord)
             {
                 ViewBag.checkPassOld = "Mật khẩu cũ nhập vào chưa đúng!!!!";
                 return View("Change");
             }
-            var newPassWord = Crypto.Hash(frm["NewPassWord"] ,"MD5");
+            var newPassWord = Crypto.Hash(frm["NewPassWord"], "MD5");
             var checkPassWord = Crypto.Hash(frm["CheckPassWord"], "MD5");
-            if(user.PassWord != newPassWord && newPassWord == checkPassWord)
+            if (user.PassWord != newPassWord && newPassWord == checkPassWord)
             {
                 login.UserName = user.UserName;
                 login.Roles = user.Roles;
-              
+
                 login.PassWord = newPassWord;
                 dbcontext.Logins.AddOrUpdate(login);
                 dbcontext.SaveChanges();

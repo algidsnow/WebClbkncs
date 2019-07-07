@@ -1306,6 +1306,7 @@
     <Content Include="Scripts\app\angular\router\app.router.js" />
     <Content Include="Scripts\app\angular\about\about.controller.js" />
     <Content Include="Scripts\app\angular\about\about.service.js" />
+    <Content Include="Scripts\app\angular\shared\shared.directive.js" />
     <Content Include="Scripts\app\angular\users\users.controller.js" />
     <Content Include="Scripts\app\angular\users\users.service.js" />
     <Content Include="Scripts\app\angular\users\users.validator.js" />
