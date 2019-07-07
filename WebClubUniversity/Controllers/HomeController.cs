@@ -107,8 +107,6 @@ namespace WebClubUniversity.Controllers
             return RedirectToAction("NewsIndex");
         }
 
-
-
         public ActionResult UserLogin()
         {
             return View();
